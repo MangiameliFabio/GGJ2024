@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://drph0ewq75a5v"]
+
+[ext_resource type="Script" path="res://tmp/zoo_visitor_01.gd" id="1_3awak"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6j11u"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_vromf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qbupm"]
+albedo_color = Color(1, 0.356863, 0.490196, 1)
+
+[node name="Zoo_Visitor_01" type="CharacterBody3D"]
+script = ExtResource("1_3awak")
+
+[node name="World_Collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_6j11u")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_vromf")
+surface_material_override/0 = SubResource("StandardMaterial3D_qbupm")
