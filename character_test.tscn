@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://dgyq6s87o5gfn"]
+
+[ext_resource type="PackedScene" uid="uid://co8yniwm7mw4v" path="res://Gibbi.tscn" id="1_mqbn4"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_gopyn"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_lht0x"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="Environment" id="Environment_wcecn"]
+
+[node name="CharacterTest" type="Node3D"]
+
+[node name="Node3D" parent="." instance=ExtResource("1_mqbn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0299501, 13.7445, 3.09153)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(28.8156, 0, 0, 0, 1, 0, 0, 0, 26.7229, 0, 0, 0)
+mesh = SubResource("BoxMesh_gopyn")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_lht0x")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_wcecn")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 0.454923, 0.890531, 0, -0.890531, 0.454923, 0, 45.9069, 36.3999)
