@@ -12,7 +12,7 @@ var state_line
 #Check if buttons are disabled or not
 func _process(delta):
 	if(!root_object):
-		return
+		root_object = get_tree().get_edited_scene_root()
 		
 	if(root_object.has_node(root_object.name + "StateMachine")):
 		state_machine_button.disabled = true
