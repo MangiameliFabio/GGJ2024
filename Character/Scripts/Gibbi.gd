@@ -39,7 +39,7 @@ func get_click_world_position() -> Vector3:
 	if direction.y == 0:
 		return Vector3.ZERO
 
-	var distance = (-ray_origin.y - position.y) / direction.y
+	var distance = (-ray_origin.y + position.y) / direction.y
 	return ray_origin + direction * distance
 
 func _physics_process(delta):
