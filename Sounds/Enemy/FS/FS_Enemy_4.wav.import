@@ -2,11 +2,7 @@
 
 importer="wav"
 type="AudioStreamWAV"
-<<<<<<< HEAD
-uid="uid://ciehnibfcrjoq"
-=======
-uid="uid://bj1w0fh64gs1"
->>>>>>> f2393de9d42f309fdf51d1bc1b052e399d73740c
+uid="uid://cx6itw3xntqgi"
 path="res://.godot/imported/FS_Enemy_4.wav-514f06dd8344451f9e28faa3b9de07f9.sample"
 
 [deps]

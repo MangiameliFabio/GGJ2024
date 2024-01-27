@@ -2,11 +2,7 @@
 
 importer="wav"
 type="AudioStreamWAV"
-<<<<<<< HEAD
-uid="uid://hma60qdyvgtx"
-=======
-uid="uid://dx1dmlyufwr1v"
->>>>>>> f2393de9d42f309fdf51d1bc1b052e399d73740c
+uid="uid://2rfds70mf1x2"
 path="res://.godot/imported/Idle_Char_2.wav-739c84147fdebf30bfc3649517837884.sample"
 
 [deps]
