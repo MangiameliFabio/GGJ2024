@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c34jh3v61xojh"]
+[gd_scene load_steps=12 format=3 uid="uid://c34jh3v61xojh"]
 
 [ext_resource type="Script" path="res://Zookeeper/zookeeper.gd" id="1_nf5op"]
 [ext_resource type="Script" path="res://StateMachines/Zookeeper/Zookeeper_State_Machine.gd" id="2_sgkx4"]
@@ -7,8 +7,13 @@
 [ext_resource type="Script" path="res://StateMachines/Zookeeper/States/Zookeeper_Attack.gd" id="5_qsxm6"]
 [ext_resource type="PackedScene" uid="uid://doos1hqfu3wdh" path="res://Zookeeper/Zookeeper_Model.tscn" id="6_0t135"]
 [ext_resource type="Script" path="res://StateMachines/Zookeeper/States/Zookeeper_Death.gd" id="6_f5tih"]
+[ext_resource type="Script" path="res://StateMachines/Zookeeper/States/Zookeeper_Charge_Dash.gd" id="7_1du7w"]
+[ext_resource type="Script" path="res://StateMachines/Zookeeper/States/Zookeeper_Dash.gd" id="8_mgsos"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xat7b"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4upli"]
+radius = 4.0
 
 [node name="Zookeeper" type="CharacterBody3D" groups=["enemy"]]
 axis_lock_linear_y = true
@@ -36,91 +41,200 @@ script = ExtResource("5_qsxm6")
 script = ExtResource("6_f5tih")
 bone = NodePath("../../Zookeeper_Model/Armature_001/Skeleton3D/Physical Bone mixamorig_Spine2")
 
+[node name="Charge_Dash" type="Node" parent="ZookeeperStateMachine"]
+script = ExtResource("7_1du7w")
+
+[node name="Dash" type="Node" parent="ZookeeperStateMachine"]
+script = ExtResource("8_mgsos")
+
 [node name="Navigation_Agent" type="NavigationAgent3D" parent="."]
 target_desired_distance = 1.5
 avoidance_enabled = true
 
 [node name="Zookeeper_Model" parent="." instance=ExtResource("6_0t135")]
 
+[node name="Skeleton3D" parent="Zookeeper_Model/Armature_001" index="0"]
+bones/0/position = Vector3(0.485142, 0.943017, -56.9517)
+bones/0/rotation = Quaternion(-0.456726, -0.0706179, 0.000442869, 0.8868)
+bones/1/rotation = Quaternion(0.0693271, 0.0223427, 0.00477646, 0.997332)
+bones/2/rotation = Quaternion(0.263488, 0.0369174, 0.00572699, 0.963939)
+bones/3/position = Vector3(-1.3113e-06, 9.32208, -1.05608e-05)
+bones/3/rotation = Quaternion(0.27544, 0.0392403, 0.00894524, 0.960475)
+bones/4/rotation = Quaternion(0.0481614, -0.0259876, 0.0750817, 0.995675)
+bones/5/rotation = Quaternion(-0.225847, -0.00541525, -0.0627451, 0.972125)
+bones/6/rotation = Quaternion(-0.433749, 0.611944, -0.435247, -0.497943)
+bones/7/position = Vector3(-3.57628e-07, 10.8382, -6.66343e-07)
+bones/7/rotation = Quaternion(0.273321, 0.334887, -0.595225, 0.677388)
+bones/8/position = Vector3(-9.63688e-06, 27.8415, -1.58086e-05)
+bones/8/rotation = Quaternion(-7.6648e-08, -1.3184e-07, -0.22363, 0.974674)
+bones/9/rotation = Quaternion(-0.156, 0.108123, -0.0726208, 0.979132)
+bones/10/rotation = Quaternion(0.324174, -0.127424, -0.240209, 0.906076)
+bones/11/position = Vector3(2.21178e-06, 4.18899, -3.41797e-06)
+bones/11/rotation = Quaternion(-0.104666, -0.0690383, 0.430446, 0.893865)
+bones/12/position = Vector3(1.11383e-05, 3.41625, 6.69586e-06)
+bones/12/rotation = Quaternion(-0.0598363, -0.0336125, 0.179312, 0.981395)
+bones/13/position = Vector3(8.34465e-07, 2.57497, 2.44224e-07)
+bones/14/position = Vector3(2.25983, 9.10829, 0.517868)
+bones/14/rotation = Quaternion(0.40864, -6.70565e-05, 0.0496529, 0.911344)
+bones/15/position = Vector3(2.91133e-07, 3.69999, 5.62467e-07)
+bones/15/rotation = Quaternion(0.60178, 0.000154482, 0.073545, 0.795269)
+bones/16/position = Vector3(-6.47087e-08, 2.85001, 2.05763e-07)
+bones/16/rotation = Quaternion(0.317592, -2.84457e-05, 0.0386218, 0.947441)
+bones/18/position = Vector3(-2.48329e-05, 9.53251, 4.63095e-05)
+bones/18/rotation = Quaternion(0.40864, -0.000204885, 0.0493452, 0.911361)
+bones/19/position = Vector3(-5.02199e-07, 3.70001, -3.32152e-06)
+bones/19/rotation = Quaternion(0.601782, 0.000511754, 0.0740176, 0.795223)
+bones/20/rotation = Quaternion(0.317587, -0.000102486, 0.0384002, 0.947451)
+bones/21/position = Vector3(-4.01207e-07, 2.94664, 1.32651e-06)
+bones/22/position = Vector3(-1.86514, 9.10359, 0.0430797)
+bones/22/rotation = Quaternion(0.40864, 6.38927e-05, 0.0499445, 0.911328)
+bones/23/rotation = Quaternion(0.601782, -0.000132921, 0.0731656, 0.795302)
+bones/24/rotation = Quaternion(0.317587, -3.59546e-05, 0.0385984, 0.947443)
+bones/25/position = Vector3(-9.08724e-06, 2.63881, 2.1622e-06)
+bones/26/position = Vector3(-3.80628, 8.07668, 0.48671)
+bones/26/rotation = Quaternion(0.408644, 0.00021261, 0.0502767, 0.911308)
+bones/27/position = Vector3(-3.01202e-08, 3.6, -2.13743e-06)
+bones/27/rotation = Quaternion(0.601784, 0.000509491, 0.0740147, 0.795222)
+bones/28/position = Vector3(2.71188e-06, 2.09998, 8.61805e-07)
+bones/28/rotation = Quaternion(0.317588, -0.000158097, 0.0382345, 0.947458)
+bones/29/position = Vector3(-1.17017e-06, 2.11577, -4.388e-06)
+bones/30/rotation = Quaternion(0.400471, 0.602605, -0.291905, 0.625525)
+bones/31/position = Vector3(-4.76837e-07, 10.8377, -2.02153e-06)
+bones/31/rotation = Quaternion(0.393034, -0.428495, 0.528337, 0.618689)
+bones/32/position = Vector3(2.53428e-06, 27.8415, -5.99141e-06)
+bones/32/rotation = Quaternion(2.95888e-07, -1.45028e-07, 0.197142, 0.980375)
+bones/33/position = Vector3(6.12936e-06, 28.3288, 6.23057e-06)
+bones/33/rotation = Quaternion(-0.176703, -0.207789, -0.0732009, 0.959292)
+bones/34/position = Vector3(-2.68173, 2.46615, 1.57617)
+bones/34/rotation = Quaternion(0.253096, -0.0613235, 0.227353, 0.938346)
+bones/35/position = Vector3(2.18262e-06, 4.18709, 3.78163e-06)
+bones/35/rotation = Quaternion(-0.116193, -0.111937, -0.402845, 0.900936)
+bones/36/position = Vector3(-5.52822e-07, 3.4184, -4.87797e-06)
+bones/36/rotation = Quaternion(-0.0736887, -0.0551924, -0.182553, 0.978876)
+bones/37/position = Vector3(-2.89934e-06, 2.58057, -6.35618e-06)
+bones/38/position = Vector3(-2.25986, 9.10932, 0.518008)
+bones/38/rotation = Quaternion(0.55596, -2.53106e-05, -0.0671299, 0.828494)
+bones/39/position = Vector3(-8.15423e-07, 3.69999, -6.53405e-06)
+bones/39/rotation = Quaternion(0.691755, 7.18208e-05, -0.0834058, 0.717299)
+bones/40/position = Vector3(5.34441e-06, 2.85, 6.00799e-06)
+bones/40/rotation = Quaternion(0.373263, -2.55015e-05, -0.0451069, 0.926628)
+bones/42/position = Vector3(-3.53718e-05, 9.5334, -4.41013e-05)
+bones/42/rotation = Quaternion(0.555843, -1.84854e-05, -0.0671057, 0.828574)
+bones/43/position = Vector3(2.93684e-07, 3.70001, -7.33839e-07)
+bones/43/rotation = Quaternion(0.691857, 1.39726e-05, -0.0834779, 0.717193)
+bones/44/rotation = Quaternion(0.373261, 6.70074e-06, -0.0450264, 0.926633)
+bones/45/position = Vector3(-3.41319e-07, 2.95288, -2.20348e-06)
+bones/46/position = Vector3(1.86508, 9.10453, 0.0430062)
+bones/46/rotation = Quaternion(0.555959, 2.66639e-06, -0.0670882, 0.828498)
+bones/47/position = Vector3(1.21889e-06, 3.15002, 2.89108e-07)
+bones/47/rotation = Quaternion(0.691757, -8.20584e-07, -0.0834812, 0.717289)
+bones/48/position = Vector3(-1.23848e-07, 2.95, -5.32404e-06)
+bones/48/rotation = Quaternion(0.373261, -1.25532e-06, -0.0450457, 0.926632)
+bones/49/position = Vector3(-2.02936e-05, 2.64432, 1.28188e-05)
+bones/50/position = Vector3(3.80626, 8.07778, 0.48686)
+bones/50/rotation = Quaternion(0.551872, 0.0210919, -0.0946638, 0.82827)
+bones/51/position = Vector3(-4.02831e-06, 3.59999, -6.22371e-06)
+bones/51/rotation = Quaternion(0.694511, 0.0246934, -0.0582065, 0.716698)
+bones/52/position = Vector3(7.80486e-07, 2.10002, 2.46594e-06)
+bones/52/rotation = Quaternion(0.37327, -2.4589e-05, -0.0451075, 0.926626)
+bones/53/position = Vector3(4.91221e-07, 2.12551, 2.78761e-06)
+bones/54/rotation = Quaternion(-0.282041, 0.726364, 0.595769, 0.194696)
+bones/55/rotation = Quaternion(-0.869996, -0.016743, 0.0697703, 0.487811)
+bones/56/rotation = Quaternion(0.698008, -0.00788637, 0.0912612, 0.710207)
+bones/57/rotation = Quaternion(0.432786, -4.34233e-09, -3.22917e-09, 0.901497)
+bones/59/rotation = Quaternion(0.224698, 0.762968, 0.538636, -0.277961)
+bones/60/rotation = Quaternion(-0.874715, 0.0312293, -0.0706184, 0.478447)
+bones/61/rotation = Quaternion(0.750571, 0.0688659, -0.0601557, 0.654432)
+bones/62/rotation = Quaternion(0.372229, -1.22131e-08, -1.20148e-07, 0.928141)
+
 [node name="Physical Bone mixamorig_Hips" parent="Zookeeper_Model/Armature_001/Skeleton3D" index="1"]
-transform = Transform3D(1, 6.47149e-09, 4.69318e-07, 4.87175e-10, 0.999917, -0.0129172, -5.34549e-07, 0.0129171, 0.999917, -4.86085e-05, 1.62002, -109.361)
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.26135e-05, 5.7708e-07, 5.09126)
-body_offset = Transform3D(1, 1.46909e-16, -3.16646e-08, 3.35287e-08, 8.84756e-08, -1, 5.3798e-11, 1, 3.72529e-09, -5.24522e-05, 5.09126, -5.96046e-07)
+transform = Transform3D(0.990026, -0.125652, -0.0637203, 0.0652958, 0.809986, -0.582803, 0.124843, 0.572828, 0.810111, 0.811512, 3.90789, -61.0761)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00178869, 0.00209891, 5.08998)
+body_offset = Transform3D(1, 1.86265e-08, 2.01166e-07, 3.07336e-06, 7.15256e-07, -1, 3.02494e-06, 0.999999, -5.36442e-07, 0.00178766, 5.08998, -0.00209618)
 
 [node name="Physical Bone mixamorig_Spine2" parent="Zookeeper_Model/Armature_001/Skeleton3D" index="2"]
-transform = Transform3D(1, -5.06702e-08, -9.8195e-08, 8.8719e-08, 0.992603, 0.121493, -6.01788e-08, -0.121492, 0.992592, 2.83443e-06, -2.18008, -141.937)
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.33762e-07, 1.9439e-05, 8.43271)
-body_offset = Transform3D(1, -1.49012e-08, -2.60773e-08, 1.21072e-07, -2.17557e-06, -1, 5.96046e-08, 1.00001, -1.56462e-07, 9.53664e-07, 8.43271, -1.81198e-05)
+transform = Transform3D(0.99796, 0.0631403, 0.00945997, 0.0265351, -0.275429, -0.960956, -0.0580678, 0.959256, -0.276537, 1.4228, 30.8357, -72.6679)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.62228e-05, 2.26182e-06, 8.4327)
+body_offset = Transform3D(1, 1.51061e-06, -1.67638e-07, 3.50177e-07, -3.30806e-06, -1, -5.1409e-07, 1.00001, -2.68221e-07, -3.48091e-05, 8.4327, 0)
 
 [node name="Physical Bone mixamorig_Shoulder_R" parent="Zookeeper_Model/Armature_001/Skeleton3D" index="3"]
-transform = Transform3D(-0.205695, 0.0494838, 0.977364, 0.978562, 1.5861e-05, 0.205948, 0.0101923, 0.998775, -0.0484228, -9.86638, -4.43247, -144.319)
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1892e-07, 1.49876e-05, 5.41908)
-body_offset = Transform3D(0.999999, 1.66819e-05, -1.49012e-08, -8.9407e-08, -3.43017e-06, -1, 7.33587e-09, 1, 5.00524e-08, -2.38419e-07, 5.41908, -1.52588e-05)
+transform = Transform3D(-0.0643299, -0.230153, 0.971025, -0.368836, -0.898672, -0.23744, 0.927265, -0.373389, -0.0270766, -8.47694, 34.8786, -72.2654)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.38602e-05, -1.4116e-06, 5.41908)
+body_offset = Transform3D(0.999999, 3.8147e-05, 2.99513e-06, -2.83122e-07, -8.03173e-06, -1, -2.08616e-07, 1, -1.14739e-06, 7.62939e-06, 5.41908, 7.62939e-06)
 
 [node name="Physical Bone mixamorig_Arm_R" parent="Zookeeper_Model/Armature_001/Skeleton3D" index="4"]
-transform = Transform3D(9.82018e-08, -1, 6.26092e-07, 1, -1.20931e-07, -1.0558e-06, 1.09399e-06, 6.29302e-07, 1, -29.1629, -5.54854, -144.056)
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.33786e-06, -14, -3.05214e-05)
-body_offset = Transform3D(1, -1.42109e-14, -1.11322e-09, -4.9738e-14, 1, -2.42996e-10, 1.13687e-13, -2.71636e-10, 1, -3.33786e-06, 14, 3.05176e-05)
+transform = Transform3D(0.780259, -0.195014, 0.594272, 0.527357, -0.305733, -0.792733, 0.336278, 0.931943, -0.135708, -16.4692, 31.8851, -59.0716)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.69711e-05, -13.9999, -1.15636e-05)
+body_offset = Transform3D(0.999996, -7.00355e-07, -1.2517e-06, 3.12924e-07, 1.00001, 0, -2.47359e-06, 1.49012e-06, 1, 1.71661e-05, 14, 3.24249e-05)
 
 [node name="Physical Bone mixamorig_ForeArm_R" parent="Zookeeper_Model/Armature_001/Skeleton3D" index="5"]
-transform = Transform3D(1.60443e-08, -1, 6.22123e-07, 1, -2.02828e-07, -1.2229e-06, 1.2599e-06, 6.24696e-07, 1, -43.0043, -5.54853, -144.056)
-body_offset = Transform3D(1, 2.60215e-10, 5.68434e-13, 4.70735e-13, 1, 3.2144e-13, -2.30477e-09, -1.15236e-09, 1, 0, 0, 0)
+transform = Transform3D(0.787233, 0.164634, 0.594272, 0.607883, -0.0452562, -0.792729, -0.103616, 0.985313, -0.13571, -19.1685, 27.6534, -46.1723)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.14441e-05, -2.28883e-05, -7.62939e-06)
+body_offset = Transform3D(0.999997, -1.30385e-08, 2.92063e-06, 1.49012e-07, 0.999997, -2.67848e-06, 3.48687e-06, -7.33882e-07, 0.999998, 1.14441e-05, 2.28882e-05, 7.62939e-06)
 
 [node name="Physical Bone mixamorig_Hand_R" parent="Zookeeper_Model/Armature_001/Skeleton3D" index="6"]
-transform = Transform3D(5.29383e-07, -0.783673, 0.621171, -0.506168, -0.53572, -0.675868, 0.862436, -0.314416, -0.396671, -72.5656, -4.2076, -143.269)
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.11732e-05, 1.90735e-05, 1.98402)
-body_offset = Transform3D(-0.506167, -0.53572, -0.675869, -1.5099e-14, 0.783673, -0.621171, 0.862436, -0.314416, -0.39667, 1.34093, 1.2324, 0.787033)
+transform = Transform3D(0.362463, -0.539399, -0.760047, -0.899995, 0.00929146, -0.435795, 0.242131, 0.841996, -0.482091, -12.9966, 27.2358, -17.3029)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000190973, -2.5779e-05, 1.98399)
+body_offset = Transform3D(-0.506163, -0.535719, -0.675869, 2.6226e-06, 0.783672, -0.621171, 0.862437, -0.314416, -0.39667, 1.34081, 1.23242, 0.787148)
 
 [node name="Physical Bone mixamorig_Shoulder_L" parent="Zookeeper_Model/Armature_001/Skeleton3D" index="7"]
-transform = Transform3D(-0.205705, -0.0494627, -0.97736, -0.978559, 0.000101779, 0.205958, -0.0101878, 0.99877, -0.0484049, 9.86662, -4.43245, -144.319)
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.47262e-06, 3.80329e-07, 5.41885)
-body_offset = Transform3D(0.999999, -9.99603e-05, -1.04308e-07, 5.96046e-08, -1.85106e-05, -0.999998, -1.51865e-07, 0.999994, -7.01859e-08, -1.90735e-06, 5.41884, 0)
+transform = Transform3D(0.0396193, 0.524095, -0.850715, 0.387665, -0.792843, -0.470365, -0.920942, -0.311007, -0.234601, 10.5165, 36.3832, -71.6711)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000575945, 0.000421506, 5.41875)
+body_offset = Transform3D(0.999994, -0.000151992, 7.30157e-07, -4.06802e-06, -3.21865e-05, -0.999998, -2.19643e-05, 1, 3.57628e-07, -0.000579834, 5.41874, -0.000423431)
 
 [node name="Physical Bone mixamorig_Arm_L" parent="Zookeeper_Model/Armature_001/Skeleton3D" index="8"]
-transform = Transform3D(2.62049e-06, -1.03563e-06, -0.999999, -0.998833, 3.24848e-07, -2.50734e-06, 2.3024e-07, 0.999999, -8.79169e-07, 29.0836, -5.54847, -143.88)
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.54756e-07, -0.176785, 13.9208)
-body_offset = Transform3D(0.998833, -5.96043e-08, -3.33862e-08, 5.11818e-10, -3.57628e-07, -1, -4.34852e-12, 1, -2.38419e-07, 0, 13.9208, 0.176788)
+transform = Transform3D(0.766204, -0.633741, -0.0912747, -0.570186, -0.74299, 0.348149, -0.287723, -0.215254, -0.932984, 16.1555, 33.8008, -57.492)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000132823, -0.381869, 13.9237)
+body_offset = Transform3D(0.99748, -2.38419e-07, -1.71363e-06, 1.62423e-06, -4.47035e-07, -0.999999, 1.10269e-06, 0.999999, 1.2815e-06, -0.000108719, 13.9237, 0.381851)
 
 [node name="Physical Bone mixamorig_ForeArm_L" parent="Zookeeper_Model/Armature_001/Skeleton3D" index="9"]
-transform = Transform3D(2.47482e-06, -2.01077e-06, -0.999999, -1, 2.63703e-07, -2.29286e-06, -2.77665e-07, 1, -2.12253e-06, 57.1688, -5.54843, -144.056)
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.60417e-05, -7.03841e-05, 14.1645)
-body_offset = Transform3D(1, -2.84217e-14, -2.48663e-07, -1.49012e-07, -2.68221e-07, -1, -5.06639e-07, 1, -4.17231e-07, 2.95639e-05, 14.1645, 7.62939e-05)
+transform = Transform3D(0.743706, -0.633737, 0.212741, -0.661762, -0.742987, 0.100128, 0.0946114, -0.215257, -0.971951, 14.6545, 27.8205, -30.6577)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000131553, -0.000181676, 14.1644)
+body_offset = Transform3D(0.99999, 1.07288e-06, -8.79169e-07, 8.9407e-07, -3.74019e-06, -0.999987, -6.25849e-07, 0.999994, -9.08971e-07, 0.000144005, 14.1642, 0.00019455)
 
 [node name="Physical Bone mixamorig_Hand_L" parent="Zookeeper_Model/Armature_001/Skeleton3D" index="10"]
-transform = Transform3D(3.25111e-07, 0.78361, -0.621253, 0.506704, -0.535592, -0.674626, -0.861027, -0.314207, -0.396119, 72.5662, -4.20751, -143.268)
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000695884, 0.0016104, 1.98681)
-body_offset = Transform3D(-0.506705, 0.535595, 0.674624, -5.8033e-08, 0.783608, -0.621256, -0.861027, -0.314209, -0.396118, -1.34086, 1.23306, 0.788116)
+transform = Transform3D(0.558557, 0.627273, 0.536529, 0.822622, -0.356797, -0.440257, -0.0848514, 0.691663, -0.716856, 10.5709, 27.2782, -15.4664)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00148576, 0.0033799, 1.98924)
+body_offset = Transform3D(-0.506694, 0.535586, 0.673528, -7.07805e-08, 0.783597, -0.621201, -0.859741, -0.313524, -0.395022, -1.34087, 1.23307, 0.78813)
 
 [node name="Physical Bone mixamorig_UpLeg_R" parent="Zookeeper_Model/Armature_001/Skeleton3D" index="11"]
-transform = Transform3D(-1, -1.23765e-07, -1.35951e-06, -8.13663e-08, 0.999959, -0.00913975, 1.37894e-06, -0.00913975, -0.999959, -8.20775, 0.157465, -75.3334)
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.95957e-07, 2.58604e-06, 22.1858)
-body_offset = Transform3D(1, -2.06057e-13, -2.23547e-08, -3.72488e-09, 9.31323e-10, -1, 2.97995e-08, 1, -3.72529e-09, 0, 22.1858, -2.5034e-06)
+transform = Transform3D(-0.691008, 0.0362972, 0.721909, -0.654832, 0.391358, -0.646535, -0.306049, -0.919521, -0.246608, -23.8986, 9.57969, -47.8855)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.23186e-05, 2.1261e-05, 22.1861)
+body_offset = Transform3D(0.999982, 5.97835e-05, 1.90735e-06, 8.64267e-07, 6.32107e-05, -0.999987, 2.563e-06, 0.999999, 4.17233e-07, 0, 22.1858, -3.05176e-05)
 
 [node name="Physical Bone mixamorig_Leg_R" parent="Zookeeper_Model/Armature_001/Skeleton3D" index="12"]
-transform = Transform3D(-1, -2.50622e-05, -1.53692e-06, -4.08291e-08, 0.997189, 0.0696876, 1.46314e-06, 0.0694956, -0.997568, -8.20769, -1.19128, -30.9389)
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.65412e-06, 1.81472e-06, 22.2639)
-body_offset = Transform3D(1, 2.51159e-05, 1.1921e-07, 4.47111e-08, -0.000165194, -0.999999, 7.2914e-09, 0.999608, 1.49012e-08, 0, 22.2639, -2.14577e-06)
+transform = Transform3D(-0.75789, -0.53447, -0.371578, -0.626367, 0.436085, 0.643324, -0.182319, 0.723448, -0.660624, -31.5909, 9.54031, -27.5992)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0206088, -0.0239056, 22.3941)
+body_offset = Transform3D(0.999987, 2.20835e-05, -0.000898778, -5.96046e-07, -0.000162333, -0.994162, 0, 0.999603, 0.00105372, -0.000480652, 22.2634, 0.000298977)
 
 [node name="Physical Bone mixamorig_Foot_R" parent="Zookeeper_Model/Armature_001/Skeleton3D" index="13"]
-transform = Transform3D(-1, -1.03679e-06, -9.98542e-07, -2.09637e-07, 0.631742, -0.775179, 1.16805e-06, -0.775178, -0.631741, -8.20765, 2.61247, -4.36481)
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.08831e-06, 2.79596e-06, 6.90844)
-body_offset = Transform3D(1, -1.42109e-14, 4.47035e-07, 2.38922e-08, 1.2517e-06, -1, -1.08986e-09, 1, -5.96046e-08, 0, 6.90844, -2.38419e-06)
+transform = Transform3D(-0.774924, -0.472892, 0.419344, -0.63204, 0.579794, -0.514141, 2.33603e-06, -0.663471, -0.748185, -26.164, -1.29251, -7.61511)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.23111e-05, -9.30491e-05, 6.90857)
+body_offset = Transform3D(0.999991, 1.19209e-06, -1.2219e-06, 1.75834e-06, 6.25849e-07, -0.999986, -8.64267e-07, 0.999991, -5.96046e-08, -4.3869e-05, 6.90847, 9.34601e-05)
 
 [node name="Physical Bone mixamorig_UpLeg_L" parent="Zookeeper_Model/Armature_001/Skeleton3D" index="14"]
-transform = Transform3D(-1, -2.45161e-07, -1.35691e-06, -2.21561e-07, 0.999857, -0.00911866, 1.3666e-06, -0.00911806, -0.999957, 8.20783, 0.157082, -75.3335)
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.39807e-07, -7.79584e-05, 22.1857)
-body_offset = Transform3D(1, 1.04675e-08, -2.43312e-08, -1.6719e-08, 1.59256e-07, -0.999999, 7.04162e-10, 0.999898, 4.74975e-07, 0, 22.1857, 6.74129e-05)
+transform = Transform3D(-0.818011, -0.0866028, -0.568637, 0.516322, 0.325043, -0.79228, 0.253491, -0.941532, -0.221221, 20.9852, 13.8846, -46.3992)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.87569e-06, 0.000212187, 22.1856)
+body_offset = Transform3D(0.999994, -3.42727e-07, 2.98023e-08, -2.23517e-06, -6.64592e-06, -0.999998, -6.4075e-07, 0.999817, 2.38419e-07, -9.53674e-06, 22.1856, -0.000217438)
 
 [node name="Physical Bone mixamorig_Leg_L" parent="Zookeeper_Model/Armature_001/Skeleton3D" index="15"]
-transform = Transform3D(-0.999999, -1.88866e-05, -1.48474e-06, 4.08942e-07, 0.997051, 0.0696653, 9.71721e-07, 0.0697218, -0.997569, 8.20789, -1.19172, -30.9387)
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.40029e-06, 1.40927e-06, 22.2642)
-body_offset = Transform3D(0.999999, 1.90569e-05, 6.7054e-08, -4.76812e-07, 9.27746e-05, -0.999998, 3.05475e-07, 0.999486, 3.65078e-07, 1.90735e-06, 22.2642, -9.53674e-06)
+transform = Transform3D(-0.885863, 0.393792, 0.244896, 0.443796, 0.565485, 0.694874, 0.135235, 0.723942, -0.676131, 28.1483, 15.9911, -26.4378)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.62241e-07, 7.69175e-05, 22.2645)
+body_offset = Transform3D(0.999998, 1.68085e-05, -2.98023e-08, -5.06639e-07, 9.98676e-05, -0.999988, 5.96046e-08, 0.999469, -6.25849e-07, 0, 22.2642, -6.29425e-05)
 
 [node name="Physical Bone mixamorig_Foot_L" parent="Zookeeper_Model/Armature_001/Skeleton3D" index="16"]
-transform = Transform3D(-1, 3.80682e-06, -5.7961e-07, -1.8643e-07, 0.631739, -0.775161, 8.19383e-07, -0.775166, -0.631739, 8.20793, 2.61247, -4.36475)
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.42208e-07, -1.54154e-05, 6.90846)
-body_offset = Transform3D(1, -4.69758e-06, -7.84951e-08, -2.84985e-07, 6.4373e-06, -0.999985, 1.37834e-07, 0.999988, 9.68575e-06, 0, 6.90835, -5.14984e-05)
+transform = Transform3D(-0.94811, 0.189094, -0.25521, 0.317165, 0.611011, -0.72472, 0.0180261, -0.767327, -0.639353, 24.4598, 5.52918, -6.96595)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.56505e-05, -0.000173385, 6.91109)
+body_offset = Transform3D(0.999915, -5.62072e-05, 2.41995e-05, -0.000562549, 0.000567973, -0.999563, 0.000734255, 0.99894, 8.96454e-05, -0.000131607, 6.90806, -0.00044632)
+
+[node name="Dash_Trigger" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Dash_Trigger"]
+shape = SubResource("SphereShape3D_4upli")
 
 [connection signal="target_reached" from="Navigation_Agent" to="." method="_on_navigation_agent_target_reached"]
+[connection signal="animation_finished" from="Zookeeper_Model/AnimationPlayer" to="ZookeeperStateMachine/Charge_Dash" method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="Zookeeper_Model/AnimationPlayer" to="ZookeeperStateMachine/Dash" method="_on_animation_player_animation_finished"]
+[connection signal="body_entered" from="Dash_Trigger" to="." method="_on_dash_trigger_entered"]
 
 [editable path="Zookeeper_Model"]
