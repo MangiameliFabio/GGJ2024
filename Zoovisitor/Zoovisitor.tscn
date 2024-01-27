@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://cbt8ur5rbka7c"]
+[gd_scene load_steps=19 format=3 uid="uid://cbt8ur5rbka7c"]
 
 [ext_resource type="Script" path="res://Zoovisitor/zoovisitor.gd" id="1_lkkw0"]
 [ext_resource type="Script" path="res://StateMachines/Zoovisitor/Zoovisitor_State_Machine.gd" id="2_y6fkm"]
 [ext_resource type="Script" path="res://StateMachines/Zoovisitor/States/Zoovisitor_Idle.gd" id="3_3cjqx"]
 [ext_resource type="Script" path="res://StateMachines/Zoovisitor/States/Zoovisitor_Follow_Player.gd" id="4_u2767"]
 [ext_resource type="Script" path="res://StateMachines/Zoovisitor/States/Zoovisitor_Attack.gd" id="5_mk8xy"]
+[ext_resource type="Script" path="res://StateMachines/Zoovisitor/States/Zoovisitor_Dash_Attack.gd" id="6_gy868"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_q7moh"]
 
@@ -2307,6 +2308,9 @@ _data = {
 "GibbiWalking": SubResource("Animation_45yqd")
 }
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_7i23y"]
+radius = 4.0
+
 [node name="Zoovisitor" type="CharacterBody3D" groups=["enemie"]]
 axis_lock_linear_y = true
 script = ExtResource("1_lkkw0")
@@ -2322,15 +2326,16 @@ initial_state = NodePath("Follow_Player")
 [node name="Idle" type="Node" parent="ZoovisitorStateMachine"]
 script = ExtResource("3_3cjqx")
 
-[node name="Follow_Player" type="Node" parent="ZoovisitorStateMachine" node_paths=PackedStringArray("zoovisitor")]
+[node name="Follow_Player" type="Node" parent="ZoovisitorStateMachine"]
 script = ExtResource("4_u2767")
-zoovisitor = NodePath("../..")
 
 [node name="Attack" type="Node" parent="ZoovisitorStateMachine"]
 script = ExtResource("5_mk8xy")
 
+[node name="Dash" type="Node" parent="ZoovisitorStateMachine"]
+script = ExtResource("6_gy868")
+
 [node name="Navigation_Agent" type="NavigationAgent3D" parent="."]
-target_desired_distance = 1.5
 avoidance_enabled = true
 
 [node name="Zookeeper_Model" type="Node3D" parent="."]
@@ -2802,4 +2807,10 @@ libraries = {
 "": SubResource("AnimationLibrary_poahd")
 }
 
+[node name="Dash_Trigger" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Dash_Trigger"]
+shape = SubResource("SphereShape3D_7i23y")
+
 [connection signal="target_reached" from="Navigation_Agent" to="." method="_on_navigation_agent_target_reached"]
+[connection signal="body_entered" from="Dash_Trigger" to="." method="_on_dash_trigger_entered"]

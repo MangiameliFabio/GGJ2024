@@ -1,6 +1,5 @@
 extends ZoovisitorBaseState
 
-@export var zoovisitor: CharacterBody3D
 
 # TODO: Change this to right model
 @onready var zoovisitor_animation_player = $"../../Zookeeper_Model".get_node("AnimationPlayer")
@@ -11,17 +10,23 @@ func handle_input(_event: InputEvent) -> void:
 
 
 func update(_delta: float) -> void:
+	if !character.dash_on_cooldown:
+		var overlapping_bodies = character.get_node("Dash_Trigger").get_overlapping_bodies()
+		for body in overlapping_bodies:
+			if body.name == "Player":
+				state_machine.transition_to("Dash")
+	
 	# Look at the set target
-	zoovisitor.look_at(zoovisitor.navigation_agent.get_target_position())
-	zoovisitor.rotate_object_local(Vector3.UP, PI)
+	character.look_at(character.navigation_agent.get_target_position())
+	character.rotate_object_local(Vector3.UP, PI)
 	
 	# Follow the set target
-	var current_location = zoovisitor.global_transform.origin
-	var next_location = zoovisitor.navigation_agent.get_next_path_position()
-	var new_velocity = (next_location - current_location).normalized() * zoovisitor.SPEED
+	var current_location = character.global_transform.origin
+	var next_location = character.navigation_agent.get_next_path_position()
+	var new_velocity = (next_location - current_location).normalized() * character.SPEED
 	
-	zoovisitor.velocity = zoovisitor.velocity.move_toward(new_velocity, 0.25)
-	zoovisitor.move_and_slide()
+	character.velocity = character.velocity.move_toward(new_velocity, 0.25)
+	character.move_and_slide()
 
 
 func physics_update(_delta: float) -> void:
