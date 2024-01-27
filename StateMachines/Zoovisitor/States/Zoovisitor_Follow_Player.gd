@@ -14,7 +14,7 @@ func update(_delta: float) -> void:
 		var overlapping_bodies = character.get_node("Dash_Trigger").get_overlapping_bodies()
 		for body in overlapping_bodies:
 			if body.name == "Player":
-				state_machine.transition_to("Dash")
+				state_machine.transition_to("Charge_Dash")
 	
 	# Look at the set target
 	character.look_at(character.navigation_agent.get_target_position())

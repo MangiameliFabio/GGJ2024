@@ -55,7 +55,7 @@ func _attack_cooldown_timer_done(timer: Timer) -> void:
 
 func _on_dash_trigger_entered(body):
 	if !dash_on_cooldown and !dead:
-		state_machine.transition_to("Dash")
+		state_machine.transition_to("Charge_Dash")
 
 func start_dash_cooldown() -> void:
 	var timer: Timer = Timer.new()
@@ -71,3 +71,6 @@ func start_dash_cooldown() -> void:
 func _dash_cooldown_timer_done(timer: Timer) -> void:
 	dash_on_cooldown = false
 	timer.queue_free()
+
+func animation_end():
+	pass
