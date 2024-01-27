@@ -2,20 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<< HEAD
-uid="uid://b7raxe4tcnw0d"
-=======
-uid="uid://ddrxdva22jxb0"
->>>>>>> f2393de9d42f309fdf51d1bc1b052e399d73740c
-path="res://.godot/imported/Enemy_Girl_2.png-10c7e874a3220952161aeafcb5f029cf.ctex"
+uid="uid://cv5eyu4ssocko"
+path="res://.godot/imported/WaterFoam.png-c90bdee914afdf08441cca594045c8ea.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Models/Entities/Zookeeper/Enemy_Girl_2.png"
-dest_files=["res://.godot/imported/Enemy_Girl_2.png-10c7e874a3220952161aeafcb5f029cf.ctex"]
+source_file="res://Textures/WaterFoam.png"
+dest_files=["res://.godot/imported/WaterFoam.png-c90bdee914afdf08441cca594045c8ea.ctex"]
 
 [params]
 
@@ -25,7 +21,7 @@ compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -35,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0
