@@ -9,8 +9,6 @@ func handle_input(_event: InputEvent) -> void:
 
 func update(_delta: float) -> void:
 	# Look at the set target
-	# TODO: Upgrade rotation cause right now
-	# it's not working 100% properly
 	zoo_visitor_01.look_at(zoo_visitor_01.navigation_agent.get_target_position())
 	zoo_visitor_01.rotate_object_local(Vector3.UP, PI)
 	
@@ -28,7 +26,7 @@ func physics_update(_delta: float) -> void:
 
 
 func enter(_msg := {}) -> void:
-	print("Follow_Player")
+	print("Follow Player Visitor")
 
 
 func exit() -> void:

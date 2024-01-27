@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=3 uid="uid://c34jh3v61xojh"]
+
+[ext_resource type="Script" path="res://Zookeeper/zookeeper.gd" id="1_nf5op"]
+[ext_resource type="Script" path="res://StateMachines/Zookeeper/Zookeeper_State_Machine.gd" id="2_sgkx4"]
+[ext_resource type="Script" path="res://StateMachines/Zookeeper/States/Zookeeper_Idle.gd" id="3_5yo00"]
+[ext_resource type="Script" path="res://StateMachines/Zookeeper/States/Zookeeper_Follow_Player.gd" id="4_13t8d"]
+[ext_resource type="Script" path="res://StateMachines/Zookeeper/States/Zookeeper_Attack.gd" id="5_qsxm6"]
+[ext_resource type="PackedScene" uid="uid://doos1hqfu3wdh" path="res://Zookeeper/Zookeeper_Model.tscn" id="6_0t135"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xat7b"]
+
+[node name="Zookeeper" type="CharacterBody3D" groups=["enemie"]]
+axis_lock_linear_y = true
+script = ExtResource("1_nf5op")
+
+[node name="World_Collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_xat7b")
+
+[node name="ZookeeperStateMachine" type="Node" parent="."]
+script = ExtResource("2_sgkx4")
+initial_state = NodePath("Follow_Player")
+
+[node name="Idle" type="Node" parent="ZookeeperStateMachine"]
+script = ExtResource("3_5yo00")
+
+[node name="Follow_Player" type="Node" parent="ZookeeperStateMachine" node_paths=PackedStringArray("zookeeper")]
+script = ExtResource("4_13t8d")
+zookeeper = NodePath("../..")
+
+[node name="Attack" type="Node" parent="ZookeeperStateMachine"]
+script = ExtResource("5_qsxm6")
+
+[node name="Navigation_Agent" type="NavigationAgent3D" parent="."]
+target_desired_distance = 1.5
+avoidance_enabled = true
+
+[node name="Zookeeper_Model" parent="." instance=ExtResource("6_0t135")]
+
+[connection signal="target_reached" from="Navigation_Agent" to="." method="_on_navigation_agent_target_reached"]

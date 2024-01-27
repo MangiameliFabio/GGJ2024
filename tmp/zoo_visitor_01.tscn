@@ -12,6 +12,7 @@ height = 1.56078
 
 [node name="Zoo_Visitor_01" type="CharacterBody3D" groups=["enemie"]]
 transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 0, 0, 0)
+axis_lock_linear_y = true
 script = ExtResource("1_3awak")
 
 [node name="World_Collision" type="CollisionShape3D" parent="."]
