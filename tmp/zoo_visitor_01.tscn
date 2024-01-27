@@ -1,22 +1,41 @@
-[gd_scene load_steps=5 format=3 uid="uid://drph0ewq75a5v"]
+[gd_scene load_steps=8 format=3 uid="uid://drph0ewq75a5v"]
 
 [ext_resource type="Script" path="res://tmp/zoo_visitor_01.gd" id="1_3awak"]
+[ext_resource type="Script" path="res://StateMachines/Zoo_Visitor_01/Zoo_Visitor_01_State_Machine.gd" id="2_iuuy6"]
+[ext_resource type="Script" path="res://StateMachines/Zoo_Visitor_01/States/Zoo_Visitor_01_Idle.gd" id="3_cq427"]
+[ext_resource type="Script" path="res://StateMachines/Zoo_Visitor_01/States/Zoo_Visitor_01_Follow_Player.gd" id="4_1x0u8"]
+[ext_resource type="Script" path="res://StateMachines/Zoo_Visitor_01/States/Zoo_Visitor_01_Attack.gd" id="5_xiq7m"]
+[ext_resource type="PackedScene" uid="uid://w2tiy8t4ho2x" path="res://Models/Entities/Gibbi/Gibbi.glb" id="6_hc3di"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6j11u"]
+height = 1.56078
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_vromf"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qbupm"]
-albedo_color = Color(1, 0.356863, 0.490196, 1)
-
-[node name="Zoo_Visitor_01" type="CharacterBody3D"]
+[node name="Zoo_Visitor_01" type="CharacterBody3D" groups=["enemie"]]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 0, 0, 0)
 script = ExtResource("1_3awak")
 
 [node name="World_Collision" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.773741, 0)
 shape = SubResource("CapsuleShape3D_6j11u")
 
-[node name="Mesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = SubResource("CapsuleMesh_vromf")
-surface_material_override/0 = SubResource("StandardMaterial3D_qbupm")
+[node name="Zoo_Visitor_01StateMachine" type="Node" parent="."]
+script = ExtResource("2_iuuy6")
+initial_state = NodePath("Follow_Player")
+
+[node name="Idle" type="Node" parent="Zoo_Visitor_01StateMachine"]
+script = ExtResource("3_cq427")
+
+[node name="Follow_Player" type="Node" parent="Zoo_Visitor_01StateMachine" node_paths=PackedStringArray("zoo_visitor_01")]
+script = ExtResource("4_1x0u8")
+zoo_visitor_01 = NodePath("../..")
+
+[node name="Attack" type="Node" parent="Zoo_Visitor_01StateMachine"]
+script = ExtResource("5_xiq7m")
+
+[node name="Navigation_Agent" type="NavigationAgent3D" parent="."]
+target_desired_distance = 1.5
+path_height_offset = 0.1
+
+[node name="Gibbi" parent="." instance=ExtResource("6_hc3di")]
+
+[connection signal="target_reached" from="Navigation_Agent" to="." method="_on_navigation_agent_target_reached"]
