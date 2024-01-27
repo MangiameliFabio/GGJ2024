@@ -3,15 +3,12 @@ class_name Zoovisitor
 
 
 const SPEED = 4.0
-const ATTACK_COOLDOWN: float = 2.0
-const DASH_COOLDOWN: float = 3.0
-const DASH_POWER: float = 4.0
+const ATTACK_COOLDOWN: float = 5.7
 
 @onready var navigation_agent = $Navigation_Agent
 @onready var state_machine = $ZoovisitorStateMachine
 
 var attack_on_cooldown: bool = false
-var dash_on_cooldown: bool = false
 var dead: bool = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -53,23 +50,19 @@ func _attack_cooldown_timer_done(timer: Timer) -> void:
 	timer.queue_free()
 
 
-func _on_dash_trigger_entered(body):
-	if !dash_on_cooldown and !dead:
-		state_machine.transition_to("Charge_Dash")
-
 func start_dash_cooldown() -> void:
 	var timer: Timer = Timer.new()
 	add_child(timer)
 	timer.one_shot = true
 	timer.autostart = false
-	timer.wait_time = DASH_COOLDOWN
+	timer.wait_time = 3 #DASH_COOLDOWN
 	timer.timeout.connect(_dash_cooldown_timer_done.bind(timer))
 	timer.start()
-	dash_on_cooldown = true
+	#dash_on_cooldown = true
 
 
 func _dash_cooldown_timer_done(timer: Timer) -> void:
-	dash_on_cooldown = false
+	#dash_on_cooldown = false
 	timer.queue_free()
 
 func receive_damage(damage_direction: Vector3) -> void:

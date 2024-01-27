@@ -6769,6 +6769,24 @@ parameters/BlendTree/Running/blend_amount = 0
 script = ExtResource("3_ng0im")
 player = NodePath("../../..")
 
+[node name="LeftArmAttachment" parent="Collision/GibbiSkeleton/Armature/GeneralSkeleton" index="19"]
+transform = Transform3D(6.37938e-07, 1, -4.32134e-07, -1, 5.43235e-07, 5.4928e-07, 5.10392e-07, 4.17233e-07, 1, 15.1628, -5.54852, -118.205)
+
+[node name="LeftForearmAttachment" parent="Collision/GibbiSkeleton/Armature/GeneralSkeleton" index="20"]
+transform = Transform3D(6.41903e-07, 1, -1.22783e-06, -1, 5.472e-07, 5.458e-07, 5.06913e-07, 1.21293e-06, 1, 53.0043, -5.5485, -118.205)
+
+[node name="LeftHandAttachment" parent="Collision/GibbiSkeleton/Armature/GeneralSkeleton" index="21"]
+transform = Transform3D(9.02615e-08, 1, -1.88805e-06, -1, -4.43917e-09, 1.33586e-06, 1.29697e-06, 1.87315e-06, 1, 91.3332, -5.54848, -118.205)
+
+[node name="RightArmAttachment" parent="Collision/GibbiSkeleton/Armature/GeneralSkeleton" index="22"]
+transform = Transform3D(1.97327e-08, -1, 6.59376e-07, 1, -1.51471e-07, -9.58779e-07, 1.00282e-06, 6.51926e-07, 1, -15.1628, -5.54854, -118.205)
+
+[node name="RightForearmAttachment" parent="Collision/GibbiSkeleton/Armature/GeneralSkeleton" index="23"]
+transform = Transform3D(-2.96289e-07, -1, 2.61275e-07, 1, -4.67493e-07, -1.59778e-06, 1.64182e-06, 2.53824e-07, 1, -53.0043, -5.54854, -118.205)
+
+[node name="RightHandAttachment" parent="Collision/GibbiSkeleton/Armature/GeneralSkeleton" index="24"]
+transform = Transform3D(1.79062e-06, -1, 2.51414e-06, 1, 1.61941e-06, -3.68469e-06, 3.72873e-06, 2.5067e-06, 1, -91.3331, -5.54856, -118.205)
+
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-2.38357e-08, 0.838243, -0.545297, 3.66408e-08, 0.545297, 0.838243, 1, 1.77636e-14, -4.37114e-08, -1.76358, 3.63098, -0.00583982)
 

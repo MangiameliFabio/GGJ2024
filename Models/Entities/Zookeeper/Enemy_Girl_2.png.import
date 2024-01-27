@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://yw3al4ieveyy"
-path="res://.godot/imported/Enemy_Girl_1.png-5041b6717c5b12ab37f3565532512ea4.ctex"
+uid="uid://b7raxe4tcnw0d"
+path="res://.godot/imported/Enemy_Girl_2.png-10c7e874a3220952161aeafcb5f029cf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Models/Entities/Zookeeper/Enemy_Girl_1.png"
-dest_files=["res://.godot/imported/Enemy_Girl_1.png-5041b6717c5b12ab37f3565532512ea4.ctex"]
+source_file="res://Models/Entities/Zookeeper/Enemy_Girl_2.png"
+dest_files=["res://.godot/imported/Enemy_Girl_2.png-10c7e874a3220952161aeafcb5f029cf.ctex"]
 
 [params]
 
