@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dyojh7y0dx268"]
+
+[ext_resource type="Texture2D" uid="uid://bv7pnumcbhqb4" path="res://Models/Entities/Zookeeper/EnemyBodyTex.png" id="1_jngbn"]
+
+[resource]
+albedo_texture = ExtResource("1_jngbn")
