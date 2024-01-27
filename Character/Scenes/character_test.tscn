@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://co8yniwm7mw4v" path="res://Character/Scenes/Gibbi.tscn" id="1_7jmg5"]
 [ext_resource type="Script" path="res://tmp/test_world.gd" id="1_gwsgm"]
-[ext_resource type="PackedScene" uid="uid://cbt8ur5rbka7c" path="res://Zoovisitor/Zoovisitor.tscn" id="2_k6soq"]
+[ext_resource type="PackedScene" uid="uid://c34jh3v61xojh" path="res://Zookeeper/Zookeeper.tscn" id="3_kt0mf"]
 
 [sub_resource type="Environment" id="Environment_wcecn"]
 
@@ -29,9 +29,6 @@ environment = SubResource("Environment_wcecn")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 0.454923, 0.890531, 0, -0.890531, 0.454923, 0, 45.9069, 36.3999)
 
-[node name="Zoovisitor" parent="." instance=ExtResource("2_k6soq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0.659003, -6)
-
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_00r6o")
 navigation_layers = 3
@@ -42,6 +39,8 @@ mesh = SubResource("BoxMesh_gopyn")
 skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/MeshInstance3D"]
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/MeshInstance3D/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_lht0x")
@@ -49,4 +48,9 @@ shape = SubResource("ConcavePolygonShape3D_lht0x")
 [node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D"]
 transform = Transform3D(8.08713, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.84505, 0)
 use_collision = true
+collision_layer = 3
+collision_mask = 3
 material = SubResource("StandardMaterial3D_qfsbd")
+
+[node name="Zookeeper" parent="." instance=ExtResource("3_kt0mf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.56323, 0.5, -5.03253)
