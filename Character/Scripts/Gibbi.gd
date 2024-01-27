@@ -33,6 +33,7 @@ func get_click_world_position() -> Vector3:
 	return ray_origin + direction * distance
 
 func _physics_process(delta):
+	skeleton.check_for_damage()
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta

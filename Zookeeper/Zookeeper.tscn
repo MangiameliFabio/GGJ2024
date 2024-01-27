@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c34jh3v61xojh"]
+[gd_scene load_steps=9 format=3 uid="uid://c34jh3v61xojh"]
 
 [ext_resource type="Script" path="res://Zookeeper/zookeeper.gd" id="1_nf5op"]
 [ext_resource type="Script" path="res://StateMachines/Zookeeper/Zookeeper_State_Machine.gd" id="2_sgkx4"]
@@ -6,10 +6,11 @@
 [ext_resource type="Script" path="res://StateMachines/Zookeeper/States/Zookeeper_Follow_Player.gd" id="4_13t8d"]
 [ext_resource type="Script" path="res://StateMachines/Zookeeper/States/Zookeeper_Attack.gd" id="5_qsxm6"]
 [ext_resource type="PackedScene" uid="uid://doos1hqfu3wdh" path="res://Zookeeper/Zookeeper_Model.tscn" id="6_0t135"]
+[ext_resource type="Script" path="res://StateMachines/Zookeeper/States/Zookeeper_Death.gd" id="6_f5tih"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xat7b"]
 
-[node name="Zookeeper" type="CharacterBody3D" groups=["enemie"]]
+[node name="Zookeeper" type="CharacterBody3D" groups=["enemy"]]
 axis_lock_linear_y = true
 script = ExtResource("1_nf5op")
 
@@ -31,10 +32,49 @@ zookeeper = NodePath("../..")
 [node name="Attack" type="Node" parent="ZookeeperStateMachine"]
 script = ExtResource("5_qsxm6")
 
+[node name="Death" type="Node" parent="ZookeeperStateMachine" node_paths=PackedStringArray("bone")]
+script = ExtResource("6_f5tih")
+bone = NodePath("../../Zookeeper_Model/Armature_001/Skeleton3D/Physical Bone mixamorig_Spine2")
+
 [node name="Navigation_Agent" type="NavigationAgent3D" parent="."]
 target_desired_distance = 1.5
 avoidance_enabled = true
 
 [node name="Zookeeper_Model" parent="." instance=ExtResource("6_0t135")]
 
+[node name="Physical Bone mixamorig_Hips" parent="Zookeeper_Model/Armature_001/Skeleton3D" index="2"]
+transform = Transform3D(1, 6.47135e-09, 4.69316e-07, 4.86889e-10, 0.999917, -0.0129163, -5.34548e-07, 0.0129162, 0.999917, -4.86083e-05, 1.62002, -109.361)
+body_offset = Transform3D(1, 2.21843e-16, -3.1665e-08, 3.35287e-08, 8.84756e-08, -1, 5.37975e-11, 1, 0, -5.24521e-05, 5.09126, -5.96046e-07)
+
+[node name="Physical Bone mixamorig_Spine" parent="Zookeeper_Model/Armature_001/Skeleton3D" index="3"]
+transform = Transform3D(0.999985, -2.22021e-07, -6.22859e-06, 5.74297e-07, 0.988994, 0.146971, 4.39303e-06, -0.147028, 0.988663, 7.96327e-07, 1.10688, -119.399)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.14851e-05, -0.154822, 4.98068)
+body_offset = Transform3D(0.999985, -1.88127e-07, -6.22963e-06, -4.43077e-06, 1.58548e-05, -0.999527, -1.11758e-07, 0.999864, 8.80659e-06, -4.85965e-07, 4.97832, 0.154757)
+
+[node name="Physical Bone mixamorig_Shoulder_R" parent="Zookeeper_Model/Armature_001/Skeleton3D" index="6"]
+transform = Transform3D(-0.205695, 0.0494831, 0.977364, 0.978563, 6.87139e-06, 0.205948, 0.0101909, 0.998775, -0.0484225, -9.86639, -4.43251, -144.319)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.61503e-07, -2.55166e-07, 5.41908)
+body_offset = Transform3D(1, 6.82274e-06, -2.98023e-08, -2.23517e-07, -1.34435e-06, -1, -7.72573e-10, 1, 4.70866e-08, 0, 5.41908, 0)
+
+[node name="Physical Bone mixamorig_Arm_R" parent="Zookeeper_Model/Armature_001/Skeleton3D" index="7"]
+transform = Transform3D(3.3662e-07, -1, -2.65697e-08, 1, 2.72276e-07, 5.31859e-08, -1.88442e-07, 2.95305e-08, 1, -29.1628, -5.54856, -144.057)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8147e-06, -14, -3.80516e-09)
+body_offset = Transform3D(1, 0, 1.63425e-13, 0, 1, 4.92625e-10, 0, -2.71797e-10, 1, -3.8147e-06, 14, 0)
+
+[node name="Physical Bone mixamorig_Shoulder_L" parent="Zookeeper_Model/Armature_001/Skeleton3D" index="10"]
+transform = Transform3D(-0.205706, -0.049463, -0.97736, -0.97856, 9.13062e-05, 0.205958, -0.0101877, 0.99877, -0.0484047, 9.86662, -4.43249, -144.319)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.42187e-07, 3.53443e-07, 5.41886)
+body_offset = Transform3D(0.999999, -8.99363e-05, -7.45058e-08, 1.19209e-07, -1.69536e-05, -0.999998, 1.14244e-07, 0.999994, -6.52242e-08, -2.38419e-07, 5.41885, 0)
+
+[node name="Physical Bone mixamorig_ForeArm_L" parent="Zookeeper_Model/Armature_001/Skeleton3D" index="12"]
+transform = Transform3D(8.19551e-07, -1.82823e-06, -1, -1, -1.28894e-07, -7.60089e-07, -4.7048e-07, 1, -2.0145e-06, 57.1688, -5.54854, -144.057)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.60417e-05, -9.34896e-06, 14.1645)
+body_offset = Transform3D(1, -4.26326e-14, -2.48663e-07, -1.49012e-07, -2.68221e-07, -1, -5.06639e-07, 1, -4.17231e-07, 2.95639e-05, 14.1645, 1.52588e-05)
+
+[node name="Physical Bone mixamorig_Foot_R" parent="Zookeeper_Model/Armature_001/Skeleton3D" index="16"]
+transform = Transform3D(-1, -1.03679e-06, -9.98542e-07, -2.09899e-07, 0.631741, -0.775182, 1.16805e-06, -0.775179, -0.631741, -8.20765, 2.61256, -4.36529)
+body_offset = Transform3D(1, 2.84217e-14, 4.47035e-07, 2.36886e-08, 1.2815e-06, -1, -1.25583e-09, 1, -1.78814e-07, 0, 6.90844, -2.38419e-06)
+
 [connection signal="target_reached" from="Navigation_Agent" to="." method="_on_navigation_agent_target_reached"]
+
+[editable path="Zookeeper_Model"]
