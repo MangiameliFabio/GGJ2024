@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dwpyf5ov3rj0l"
+path="res://.godot/imported/FS_Char (04).wav-da91f2ab7c518f1476e7bd996a008d6c.sample"
+
+[deps]
+
+source_file="res://Sounds/Character/FS/FS_Char (04).wav"
+dest_files=["res://.godot/imported/FS_Char (04).wav-da91f2ab7c518f1476e7bd996a008d6c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
