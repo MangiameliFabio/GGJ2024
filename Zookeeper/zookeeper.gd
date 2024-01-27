@@ -22,7 +22,7 @@ func _ready() -> void:
 
 func receive_damage(damage_direction: Vector3) -> void:
 	if !dead:
-		#state_machine.transition_to("Death", {"damage_direction": damage_direction})
+		state_machine.transition_to("Death", {"damage_direction": damage_direction})
 		pass
 
 func _physics_process(delta) -> void:
