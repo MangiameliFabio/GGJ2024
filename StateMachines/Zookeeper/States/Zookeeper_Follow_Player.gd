@@ -11,6 +11,13 @@ func handle_input(_event: InputEvent) -> void:
 
 
 func update(_delta: float) -> void:
+	if !character.dash_on_cooldown:
+		var overlapping_bodies = character.get_node("Dash_Trigger").get_overlapping_bodies()
+		for body in overlapping_bodies:
+			if body.name == "Player":
+				print("follow trigger")
+				state_machine.transition_to("Charge_Dash")
+	
 	# Look at the set target
 	zookeeper.look_at(zookeeper.navigation_agent.get_target_position())
 	zookeeper.rotate_object_local(Vector3.UP, PI)
@@ -29,7 +36,6 @@ func physics_update(_delta: float) -> void:
 
 
 func enter(_msg := {}) -> void:
-	print("Follow player zookeeper")
 	zookeeper_animation_player.play("EnemyWalk")
 
 

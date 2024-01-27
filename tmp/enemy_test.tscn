@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://tmp/test_world.gd" id="1_ti03i"]
 [ext_resource type="PackedScene" uid="uid://co8yniwm7mw4v" path="res://Character/Scenes/Gibbi.tscn" id="2_ehk0r"]
-[ext_resource type="PackedScene" uid="uid://cbt8ur5rbka7c" path="res://Zoovisitor/Zoovisitor.tscn" id="3_vubwj"]
+[ext_resource type="PackedScene" uid="uid://c34jh3v61xojh" path="res://Zookeeper/Zookeeper.tscn" id="3_p6l6f"]
 
 [sub_resource type="Environment" id="Environment_wcecn"]
 
@@ -21,16 +21,13 @@ data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0
 script = ExtResource("1_ti03i")
 
 [node name="Player" parent="." instance=ExtResource("2_ehk0r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0299501, 0.785275, 3.09153)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.88631, 0.785275, 3.09153)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_wcecn")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 0.454923, 0.890531, 0, -0.890531, 0.454923, 0, 45.9069, 36.3999)
-
-[node name="Zoovisitor" parent="." instance=ExtResource("3_vubwj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.423, 0.659003, 2.92758)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_00r6o")
@@ -50,3 +47,6 @@ shape = SubResource("ConcavePolygonShape3D_lht0x")
 transform = Transform3D(8.08713, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.84505, 0)
 use_collision = true
 material = SubResource("StandardMaterial3D_qfsbd")
+
+[node name="Zookeeper" parent="." instance=ExtResource("3_p6l6f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.78056, 0.571799, 3.6969)
