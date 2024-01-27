@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://c7ahxrnjw44w4"]
+
+[ext_resource type="PackedScene" uid="uid://domd3j5niuo1s" path="res://Models/Environment/Enclosure.glb" id="1_20d81"]
+[ext_resource type="Texture2D" uid="uid://78jq0qrc20lv" path="res://Textures/sand1.png" id="2_sxoc8"]
+[ext_resource type="Shader" uid="uid://bnfvp7ewnxarw" path="res://Models/Environment/WaterShader.tres" id="3_8r8m5"]
+[ext_resource type="Texture2D" uid="uid://cv5eyu4ssocko" path="res://Textures/WaterFoam.png" id="4_slo63"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l0yfi"]
+albedo_texture = ExtResource("2_sxoc8")
+uv1_scale = Vector3(1.3, 1.3, 1.3)
+texture_filter = 0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c2cac"]
+render_priority = 0
+shader = ExtResource("3_8r8m5")
+shader_parameter/WaterColor = Color(0.160784, 0.329412, 0.521569, 1)
+shader_parameter/Texture2DParameter = ExtResource("4_slo63")
+
+[node name="Enclosure" instance=ExtResource("1_20d81")]
+
+[node name="Sand" parent="." index="0"]
+material_override = SubResource("StandardMaterial3D_l0yfi")
+
+[node name="Tree1" parent="." index="8"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -5.2112, 0.245751, 5.14601)
+
+[node name="Water" parent="." index="14"]
+material_override = SubResource("ShaderMaterial_c2cac")
+
+[node name="Tree2" parent="." index="15"]
+transform = Transform3D(-0.0434424, 0, -0.79882, 0, 0.8, 0, 0.79882, 0, -0.0434424, -0.435014, 0.447269, -1.92389)
