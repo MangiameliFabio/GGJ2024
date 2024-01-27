@@ -1,0 +1,21 @@
+extends AnimationTree
+
+@export var player : Gibbi
+
+func _ready():
+	active = true
+
+func _process(delta):
+	if player == null:
+		return
+
+	SetRunning(player.velocity.length_squared() > 1)
+
+func Kill():
+	set("parameters/conditions/IsDead", true)
+
+func SetRunning(IsRunning : bool):
+	set("parameters/BlendTree/Running/blend_amount", 1 if IsRunning else 0)
+	
+func SetHit():
+	set("parameters/BlendTree/GetHit/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
