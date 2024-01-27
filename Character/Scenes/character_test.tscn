@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://dgyq6s87o5gfn"]
+[gd_scene load_steps=6 format=3 uid="uid://dgyq6s87o5gfn"]
 
-[ext_resource type="PackedScene" uid="uid://co8yniwm7mw4v" path="res://Gibbi.tscn" id="1_mqbn4"]
+[ext_resource type="PackedScene" uid="uid://co8yniwm7mw4v" path="res://Character/Scenes/Gibbi.tscn" id="1_7jmg5"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_gopyn"]
 
@@ -9,10 +9,12 @@ data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0
 
 [sub_resource type="Environment" id="Environment_wcecn"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qfsbd"]
+
 [node name="CharacterTest" type="Node3D"]
 
-[node name="Node3D" parent="." instance=ExtResource("1_mqbn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0299501, 13.7445, 3.09153)
+[node name="Node3D" parent="." instance=ExtResource("1_7jmg5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0299501, 0.785275, 3.09153)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(28.8156, 0, 0, 0, 1, 0, 0, 0, 26.7229, 0, 0, 0)
@@ -29,3 +31,8 @@ environment = SubResource("Environment_wcecn")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 0.454923, 0.890531, 0, -0.890531, 0.454923, 0, 45.9069, 36.3999)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(8.08713, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.432045, 0)
+use_collision = true
+material = SubResource("StandardMaterial3D_qfsbd")

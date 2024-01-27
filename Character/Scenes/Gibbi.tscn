@@ -1,0 +1,142 @@
+[gd_scene load_steps=4 format=3 uid="uid://co8yniwm7mw4v"]
+
+[ext_resource type="Script" path="res://Character/Scripts/Gibbi.gd" id="1_bjr0a"]
+[ext_resource type="PackedScene" uid="uid://bbido7q45u8bu" path="res://Character/Scenes/gibbi_skeleton/ragdoll_gibbi.tscn" id="2_btqg1"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bmr3t"]
+radius = 0.244455
+height = 1.6
+
+[node name="Gibbi" type="CharacterBody3D"]
+script = ExtResource("1_bjr0a")
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+shape = SubResource("CapsuleShape3D_bmr3t")
+
+[node name="GibbiSkeleton" parent="Collision" instance=ExtResource("2_btqg1")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.8, 0)
+
+[node name="GeneralSkeleton" parent="Collision/GibbiSkeleton/Armature" index="0"]
+bones/0/position = Vector3(6.39434e-06, 1.55425, -78.4184)
+bones/0/rotation = Quaternion(-0.702525, 1.78279e-07, 1.75991e-07, 0.711659)
+bones/1/rotation = Quaternion(-0.0801557, 8.83285e-15, -2.48068e-07, 0.996782)
+bones/3/rotation = Quaternion(0.0128857, -4.77108e-10, -3.70241e-08, 0.999917)
+bones/6/rotation = Quaternion(-0.484431, 0.570964, -0.526164, -0.403087)
+bones/10/rotation = Quaternion(0.253284, 0.0616188, -0.22821, 0.938067)
+bones/12/rotation = Quaternion(-0.00166434, -0.000807582, 0.0069199, 0.999974)
+bones/13/position = Vector3(-3.8068e-06, 2.57499, 1.93757e-05)
+bones/14/position = Vector3(2.25983, 9.10828, 0.51787)
+bones/15/position = Vector3(1.53017e-07, 3.7, -6.05767e-06)
+bones/16/position = Vector3(-5.78731e-09, 2.85002, -4.5033e-06)
+bones/23/position = Vector3(-5.37044e-07, 3.37928, -1.10402e-05)
+bones/26/position = Vector3(-3.80628, 8.07668, 0.486707)
+bones/27/position = Vector3(8.41117e-07, 3.60001, 3.7096e-06)
+bones/28/position = Vector3(1.29156e-06, 2.09999, -9.46538e-07)
+bones/30/rotation = Quaternion(0.484423, 0.57097, -0.526162, 0.40309)
+bones/31/rotation = Quaternion(-0.0246071, -0.00256166, 0.103504, 0.994321)
+bones/34/position = Vector3(-2.68173, 2.46616, 1.5762)
+bones/35/position = Vector3(8.3323e-07, 4.1871, 3.97876e-06)
+bones/37/position = Vector3(-2.49562e-06, 2.58058, -2.74558e-05)
+bones/40/position = Vector3(2.89917e-07, 2.85001, 2.852e-06)
+bones/44/position = Vector3(-1.84346e-07, 2.95, -1.26702e-05)
+bones/53/position = Vector3(5.54213e-08, 2.12552, -4.90497e-06)
+bones/54/rotation = Quaternion(-1.03584e-07, 0.0120533, 0.999927, 2.60982e-07)
+bones/60/rotation = Quaternion(-0.0529703, -1.15655e-06, 8.41257e-08, 0.998596)
+bones/61/rotation = Quaternion(0.471405, 9.48924e-07, -6.62933e-07, 0.881917)
+bones/62/rotation = Quaternion(0.335241, 2.63411e-08, -1.33439e-07, 0.942132)
+
+[node name="Physical Bone mixamorig_Hips" parent="Collision/GibbiSkeleton/Armature/GeneralSkeleton" index="1"]
+transform = Transform3D(0.998483, -5.52508e-05, -8.79181e-05, 6.01409e-05, 0.995673, -0.0128326, 2.50044e-05, 0.0128504, 0.998478, -0.0011427, 1.62118, -83.4955)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00159848, -0.00168345, 5.08487)
+body_offset = Transform3D(0.998483, -5.52572e-05, -8.84184e-05, -2.47257e-05, 1.11116e-05, -0.99856, 6.04653e-05, 0.995756, 6.51283e-05, -0.00114655, 5.07755, 0.00134504)
+
+[node name="Physical Bone mixamorig_Spine" parent="Collision/GibbiSkeleton/Armature/GeneralSkeleton" index="2"]
+transform = Transform3D(0.999907, 3.83337e-07, -9.46238e-07, 2.83943e-06, 0.989081, 0.147019, -5.90877e-06, -0.147028, 0.989042, -0.00110769, 0.953163, -93.5303)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0011138, -0.00026437, 4.98487)
+body_offset = Transform3D(0.999907, 4.17234e-07, -9.47276e-07, 5.42603e-06, 3.8743e-06, -0.999909, 3.64345e-06, 0.999949, 6.10948e-07, -0.00110898, 4.98442, 0.000261307)
+
+[node name="Physical Bone mixamorig_Spine1" parent="Collision/GibbiSkeleton/Armature/GeneralSkeleton" index="3"]
+transform = Transform3D(0.999869, 3.53948e-06, 1.24099e-05, 3.0541e-05, 0.988549, 0.147019, 3.75232e-06, -0.146984, 0.988794, -0.00116316, -0.464341, -103.09)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00110693, -0.00392209, 4.64756)
+body_offset = Transform3D(0.999869, 3.57336e-06, 1.24089e-05, -8.20309e-06, 3.79086e-05, -0.999664, 2.96235e-05, 0.999417, 3.71784e-05, -0.00116444, 4.646, 0.00374699)
+
+[node name="Physical Bone mixamorig_Spine2" parent="Collision/GibbiSkeleton/Armature/GeneralSkeleton" index="4"]
+transform = Transform3D(0.999887, -7.99298e-06, -5.04247e-07, 5.74022e-06, 0.99249, 0.121508, -4.94848e-07, -0.121519, 0.992498, -0.000651878, -2.17868, -116.08)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000657467, -0.000985296, 8.42806)
+body_offset = Transform3D(0.999887, -7.95722e-06, -4.32134e-07, -1.3411e-07, 3.70666e-05, -0.999908, 5.72205e-06, 0.999901, 2.48998e-05, -0.000653759, 8.42728, 0.000775337)
+
+[node name="Physical Bone mixamorig_Shoulder_R" parent="Collision/GibbiSkeleton/Armature/GeneralSkeleton" index="5"]
+transform = Transform3D(-0.205606, 0.0494743, 0.977257, 0.97805, 3.00881e-07, 0.205919, 0.0101529, 0.998543, -0.0483937, -9.8673, -4.42657, -118.465)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00599365, -0.00202013, 5.41945)
+body_offset = Transform3D(0.999479, -2.82304e-07, -6.15418e-06, 1.63019e-05, -2.65766e-06, -0.999888, -3.34528e-05, 0.999767, 2.35016e-05, 0.00602388, 5.41885, 0.00189209)
+
+[node name="Physical Bone mixamorig_Arm_R" parent="Collision/GibbiSkeleton/Armature/GeneralSkeleton" index="6"]
+transform = Transform3D(1.56361e-05, -0.00258185, 0.999946, 0.999867, 7.70736e-06, -6.59733e-06, 2.09285e-05, 0.999919, 0.00256583, -34.0531, -5.54646, -118.198)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00197528, -0.0548624, 18.8912)
+body_offset = Transform3D(0.999867, 7.45803e-06, -6.31633e-06, -1.53631e-05, 0.00258182, -0.999946, 2.12342e-05, 0.999919, 0.00256586, 0.00209475, 18.8903, 0.0063858)
+
+[node name="Physical Bone mixamorig_ForeArm_R" parent="Collision/GibbiSkeleton/Armature/GeneralSkeleton" index="7"]
+transform = Transform3D(-8.62425e-06, 0.0203099, 0.999727, 0.999923, -2.48515e-06, 7.77345e-06, 3.636e-07, 0.999682, -0.0203323, -72.8732, -5.5481, -118.2)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000616229, 0.399589, 19.8662)
+body_offset = Transform3D(0.999923, -1.82912e-06, 7.98702e-06, 8.84252e-06, -0.0203099, -0.999727, -2.30925e-07, 0.999682, -0.0203323, 0.000458241, 19.8689, 0.0044632)
+
+[node name="Physical Bone mixamorig_Hand_R" parent="Collision/GibbiSkeleton/Armature/GeneralSkeleton" index="8"]
+transform = Transform3D(1.00672e-05, -0.782883, 0.620661, -0.506109, -0.535645, -0.67564, 0.862351, -0.314361, -0.396617, -92.5714, -4.21274, -117.413)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00690401, -0.00620268, 1.98718)
+body_offset = Transform3D(-0.506108, -0.535646, -0.67564, -1.0218e-05, 0.782883, -0.620661, 0.862351, -0.314361, -0.396617, 1.3358, 1.23822, 0.792152)
+
+[node name="Physical Bone mixamorig_Shoulder_L" parent="Collision/GibbiSkeleton/Armature/GeneralSkeleton" index="9"]
+transform = Transform3D(-0.205673, -0.0493564, -0.977066, -0.978376, 0.000114006, 0.205583, -0.0101662, 0.998506, -0.0483764, 9.85866, -4.42937, -118.463)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000198876, -0.00440864, 5.4126)
+body_offset = Transform3D(0.999813, -0.000131306, 0.000306472, -4.39584e-06, 6.98597e-05, -0.999632, 1.99426e-05, 0.999725, 1.36606e-05, -0.00146055, 5.41061, 0.0043335)
+
+[node name="Physical Bone mixamorig_Arm_L" parent="Collision/GibbiSkeleton/Armature/GeneralSkeleton" index="10"]
+transform = Transform3D(6.39012e-06, 2.66955e-05, -0.999861, -0.999853, -1.33057e-05, -5.87575e-06, 1.99838e-05, 0.999877, -2.94e-05, 34.0912, -5.5463, -118.196)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0021473, -0.00824004, 18.931)
+body_offset = Transform3D(0.999853, 1.35899e-05, 5.1558e-06, 5.61762e-06, 2.70456e-05, -0.999861, 1.96397e-05, 0.999877, -2.90573e-05, -0.00224447, 18.9284, 0.00878906)
+
+[node name="Physical Bone mixamorig_ForeArm_L" parent="Collision/GibbiSkeleton/Armature/GeneralSkeleton" index="11"]
+transform = Transform3D(-1.02734e-07, -1.38415e-05, -0.999929, -0.99983, 2.92422e-06, -7.83572e-07, 1.96227e-05, 0.999846, -2.41159e-05, 72.1683, -5.55098, -118.196)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00245872, -0.0084186, 19.1653)
+body_offset = Transform3D(0.99983, -2.64358e-06, 5.96053e-08, -8.79169e-07, -1.26958e-05, -0.999929, 1.92821e-05, 0.999846, -2.29776e-05, 0.00245714, 19.164, 0.00885773)
+
+[node name="Physical Bone mixamorig_Hand_L" parent="Collision/GibbiSkeleton/Armature/GeneralSkeleton" index="12"]
+transform = Transform3D(-6.41917e-06, 0.78355, -0.620938, 0.506648, -0.535326, -0.67526, -0.862017, -0.31474, -0.396903, 92.5685, -4.21082, -117.411)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00602311, -0.00190459, 1.98704)
+body_offset = Transform3D(-0.506648, 0.535327, 0.675259, -7.48038e-06, 0.783549, -0.620939, -0.862017, -0.314742, -0.396902, -1.33769, 1.23532, 0.793251)
+
+[node name="Physical Bone mixamorig_UpLeg_R" parent="Collision/GibbiSkeleton/Armature/GeneralSkeleton" index="13"]
+transform = Transform3D(-0.999922, 1.35446e-05, -4.41401e-07, 1.20138e-05, 0.999851, -0.0111745, -1.12711e-05, -0.0111857, -0.999827, -8.20617, 0.126315, -56.2064)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00160657, 0.0011717, 15.463)
+body_offset = Transform3D(0.999922, -1.37511e-05, 4.64827e-07, -1.11125e-05, 3.57721e-06, -0.999889, 1.23456e-05, 0.999914, 1.45109e-05, -0.00161362, 15.4613, -0.001396)
+
+[node name="Physical Bone mixamorig_Leg_R" parent="Collision/GibbiSkeleton/Armature/GeneralSkeleton" index="14"]
+transform = Transform3D(-0.999916, 8.91337e-06, -1.22174e-06, 5.00047e-05, 0.995421, 0.0945776, 3.06384e-06, 0.0945834, -0.995413, -8.20682, -1.21823, -24.7462)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000944104, -0.00205784, 16.0812)
+body_offset = Transform3D(0.999916, -7.71881e-06, 1.19209e-06, -1.70992e-06, -6.25104e-06, -0.999896, 4.88758e-05, 0.999905, -1.12057e-05, -0.000963211, 16.0795, 0.0022378)
+
+[node name="Physical Bone mixamorig_Foot_R" parent="Collision/GibbiSkeleton/Armature/GeneralSkeleton" index="15"]
+transform = Transform3D(-0.999932, 4.96467e-06, -5.08926e-06, 5.24612e-06, 0.63164, -0.775025, 5.06098e-06, -0.775068, -0.631599, -8.20668, 2.61221, -4.36135)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00106736, -0.000375216, 6.90928)
+body_offset = Transform3D(0.999932, -4.91801e-06, 5.3653e-06, 7.53999e-06, -6.13928e-06, -0.999791, -6.5565e-07, 0.99985, -1.12653e-05, -0.00110435, 6.90784, 0.000452995)
+
+[node name="Physical Bone mixamorig_UpLeg_L" parent="Collision/GibbiSkeleton/Armature/GeneralSkeleton" index="16"]
+transform = Transform3D(-0.999978, -7.17285e-06, -4.94742e-07, -4.69366e-06, 0.999502, -0.011182, 1.21681e-06, -0.0111934, -0.99988, 8.19851, 0.15329, -56.1591)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00929256, -0.0251728, 15.5097)
+body_offset = Transform3D(0.999978, 7.09265e-06, 5.49018e-07, 1.21834e-06, 2.49604e-05, -0.999943, -4.62679e-06, 0.999564, 4.05293e-05, 0.00928402, 15.5088, 0.0245332)
+
+[node name="Physical Bone mixamorig_Leg_L" parent="Collision/GibbiSkeleton/Armature/GeneralSkeleton" index="17"]
+transform = Transform3D(-0.999888, -2.06565e-05, -1.506e-05, -6.81306e-06, 0.994846, 0.0944782, 3.17866e-07, 0.0945627, -0.995142, 8.20514, -1.22088, -24.7383)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00290254, 0.0020276, 16.094)
+body_offset = Transform3D(0.999888, 2.28882e-05, 1.50598e-05, 9.61125e-07, 1.14739e-06, -0.999617, -8.9854e-06, 0.99933, -0.000111043, 0.0026598, 16.0878, -0.000239134)
+
+[node name="Physical Bone mixamorig_Foot_L" parent="Collision/GibbiSkeleton/Armature/GeneralSkeleton" index="18"]
+transform = Transform3D(-0.999843, -7.61627e-06, 2.1442e-06, -1.09429e-06, 0.63167, -0.775117, 4.43523e-06, -0.775093, -0.631672, 8.20517, 2.61237, -4.36069)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00260772, 0.000242605, 6.90896)
+body_offset = Transform3D(0.999843, 7.80821e-06, -1.93715e-06, 2.16067e-06, 1.2815e-06, -0.999908, -4.32134e-06, 0.999888, -1.21295e-05, 0.0026207, 6.90833, -0.000158787)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-2.38357e-08, 0.838243, -0.545297, 3.66408e-08, 0.545297, 0.838243, 1, 1.77636e-14, -4.37114e-08, -1.76358, 3.63098, -0.00583982)
+
+[editable path="Collision/GibbiSkeleton"]
