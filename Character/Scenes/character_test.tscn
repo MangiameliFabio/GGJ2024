@@ -1,30 +1,27 @@
-[gd_scene load_steps=6 format=3 uid="uid://dgyq6s87o5gfn"]
+[gd_scene load_steps=9 format=3 uid="uid://dgyq6s87o5gfn"]
 
 [ext_resource type="PackedScene" uid="uid://co8yniwm7mw4v" path="res://Character/Scenes/Gibbi.tscn" id="1_7jmg5"]
+[ext_resource type="Script" path="res://tmp/test_world.gd" id="1_gwsgm"]
+[ext_resource type="PackedScene" uid="uid://cbt8ur5rbka7c" path="res://Zoovisitor/Zoovisitor.tscn" id="2_k6soq"]
+
+[sub_resource type="Environment" id="Environment_wcecn"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_00r6o"]
+vertices = PackedVector3Array(-13.9078, 1, -0.11145, -4.6578, 1, -0.11145, -4.4078, 1, -1.11145, -3.1578, 1, -12.8615, -13.9078, 1, -12.8615, -4.4078, 1, -1.11145, -2.9078, 1, -1.11145, -3.1578, 1, -12.8615, -2.9078, 1, -1.11145, 2.8422, 1, -1.11145, 3.0922, 1, -12.8615, -3.1578, 1, -12.8615, 4.3422, 1, -1.11145, 4.5922, 1, -0.11145, 13.8422, 1, -0.11145, 13.8422, 1, -12.8615, 3.0922, 1, -12.8615, 3.0922, 1, -12.8615, 2.8422, 1, -1.11145, 4.3422, 1, -1.11145, -4.4078, 1, 1.13855, -4.6578, 1, -0.11145, -13.9078, 1, -0.11145, -13.9078, 1, 12.8885, -3.1578, 1, 12.8885, -3.1578, 1, 12.8885, -2.9078, 1, 1.13855, -4.4078, 1, 1.13855, 13.8422, 1, -0.11145, 4.5922, 1, -0.11145, 4.3422, 1, 1.13855, 3.0922, 1, 12.8885, 13.8422, 1, 12.8885, 4.3422, 1, 1.13855, 2.8422, 1, 1.13855, 3.0922, 1, 12.8885, -3.1578, 1, 12.8885, 3.0922, 1, 12.8885, 2.8422, 1, 1.13855, -2.9078, 1, 1.13855)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 4), PackedInt32Array(2, 4, 3), PackedInt32Array(7, 6, 5), PackedInt32Array(8, 11, 9), PackedInt32Array(9, 11, 10), PackedInt32Array(13, 12, 14), PackedInt32Array(14, 12, 15), PackedInt32Array(15, 12, 16), PackedInt32Array(19, 18, 17), PackedInt32Array(21, 20, 22), PackedInt32Array(22, 20, 23), PackedInt32Array(23, 20, 24), PackedInt32Array(27, 26, 25), PackedInt32Array(29, 28, 30), PackedInt32Array(30, 28, 32), PackedInt32Array(30, 32, 31), PackedInt32Array(35, 34, 33), PackedInt32Array(39, 38, 36), PackedInt32Array(36, 38, 37)]
 
 [sub_resource type="BoxMesh" id="BoxMesh_gopyn"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_lht0x"]
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
-[sub_resource type="Environment" id="Environment_wcecn"]
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qfsbd"]
 
 [node name="CharacterTest" type="Node3D"]
+script = ExtResource("1_gwsgm")
 
-[node name="Node3D" parent="." instance=ExtResource("1_7jmg5")]
+[node name="Player" parent="." instance=ExtResource("1_7jmg5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0299501, 0.785275, 3.09153)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(28.8156, 0, 0, 0, 1, 0, 0, 0, 26.7229, 0, 0, 0)
-mesh = SubResource("BoxMesh_gopyn")
-skeleton = NodePath("")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_lht0x")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_wcecn")
@@ -32,7 +29,24 @@ environment = SubResource("Environment_wcecn")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 0.454923, 0.890531, 0, -0.890531, 0.454923, 0, 45.9069, 36.3999)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(8.08713, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.432045, 0)
+[node name="Zoovisitor" parent="." instance=ExtResource("2_k6soq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0.659003, -6)
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_00r6o")
+navigation_layers = 3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D"]
+transform = Transform3D(28.8156, 0, 0, 0, 1, 0, 0, 0, 26.7229, 0, 0, 0)
+mesh = SubResource("BoxMesh_gopyn")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_lht0x")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D"]
+transform = Transform3D(8.08713, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.84505, 0)
 use_collision = true
 material = SubResource("StandardMaterial3D_qfsbd")
