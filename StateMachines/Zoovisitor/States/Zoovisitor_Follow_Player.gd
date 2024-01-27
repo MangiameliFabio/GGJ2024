@@ -2,7 +2,7 @@ extends ZoovisitorBaseState
 
 
 # TODO: Change this to right model
-@onready var zoovisitor_animation_player = $"../../Zookeeper_Model".get_node("AnimationPlayer")
+@onready var zoovisitor_animation_player = $"../../Zookeeper_Model/AnimationPlayer"
 
 
 func handle_input(_event: InputEvent) -> void:
@@ -35,7 +35,7 @@ func physics_update(_delta: float) -> void:
 
 func enter(_msg := {}) -> void:
 	print("Follow player zoovisitor")
-	zoovisitor_animation_player.play("EnemyWalk")
+	#zoovisitor_animation_player.play("EnemyWalk")
 
 
 func exit() -> void:

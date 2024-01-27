@@ -72,5 +72,6 @@ func _dash_cooldown_timer_done(timer: Timer) -> void:
 	dash_on_cooldown = false
 	timer.queue_free()
 
-func animation_end():
-	pass
+func receive_damage(damage_direction: Vector3) -> void:
+	if !dead:
+		state_machine.transition_to("Death", {"damage_direction": damage_direction})
