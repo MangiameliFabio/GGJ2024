@@ -1,6 +1,8 @@
 extends CharacterBody3D
 class_name Gibbi
 
+static var Instance : Node
+
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 const ROTATION_SPEED = 0.005
@@ -20,6 +22,7 @@ var dead = false
 signal running(IsRunning : bool)
 
 func _ready():
+	Instance = self
 	anim_player.play("GibbiIdle")
 
 func _input(event):

@@ -22,8 +22,7 @@ func receive_damage(damage_direction: Vector3) -> void:
 		state_machine.transition_to("Death", {"damage_direction": damage_direction})
 
 func _physics_process(delta) -> void:
-	pass
-
+	update_target_location(Gibbi.Instance.global_transform.origin)
 
 func update_target_location(target_location: Vector3) -> void:
 	navigation_agent.set_target_position(target_location)
