@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://cirra0rk75s10"]
+
+[ext_resource type="Texture2D" uid="uid://cl6wbax8yde0q" path="res://UI/banana.png" id="1_agos7"]
+
+[node name="Control" type="TextureRect"]
+clip_contents = true
+custom_minimum_size = Vector2(32, 32)
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_agos7")
+expand_mode = 4
+stretch_mode = 2
