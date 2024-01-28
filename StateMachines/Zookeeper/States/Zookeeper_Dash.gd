@@ -16,12 +16,12 @@ func physics_update(_delta: float) -> void:
 
 
 func enter(_msg := {}) -> void:
-	character.start_dash_cooldown()
+	#character.start_dash_cooldown()
 	animation_player.play("EnemyAttack_End")
 
 
 func exit() -> void:
-	pass
+	character.is_invincible = false
 
 
 func _on_animation_player_animation_finished(anim_name):

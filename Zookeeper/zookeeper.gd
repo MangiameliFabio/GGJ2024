@@ -4,7 +4,7 @@ class_name Zookeeper
 
 const SPEED = 4.0
 const ATTACK_TIMEOUT: float = 2.0
-const DASH_COOLDOWN: float = 10.0
+const DASH_COOLDOWN: float = 5.0
 const DASH_POWER: float = 4.0
 
 @onready var navigation_agent = $Navigation_Agent
@@ -12,6 +12,7 @@ const DASH_POWER: float = 4.0
 
 var attack_on_cooldown: bool = false
 var dash_on_cooldown: bool = false
+var is_invincible: bool = false
 var dead: bool
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -21,7 +22,7 @@ func _ready() -> void:
 	pass
 
 func receive_damage(damage_direction: Vector3) -> bool:
-	if !dead:
+	if !dead and !is_invincible:
 		state_machine.transition_to("Death", {"damage_direction": damage_direction})
 		return true
 	return false
@@ -60,14 +61,14 @@ func _on_dash_trigger_entered(body):
 
 
 func start_dash_cooldown() -> void:
-	var timer: Timer = Timer.new()
-	add_child(timer)
-	timer.one_shot = true
-	timer.autostart = false
-	timer.wait_time = DASH_COOLDOWN
-	timer.timeout.connect(_dash_cooldown_timer_done.bind(timer))
-	timer.start()
 	dash_on_cooldown = true
+	var timer: Timer = Timer.new()
+	timer.one_shot = true
+	timer.autostart = true
+	timer.wait_time = DASH_COOLDOWN
+	add_child(timer)
+	timer.timeout.connect(_dash_cooldown_timer_done.bind(timer))
+	#timer.start()
 
 
 func _dash_cooldown_timer_done(timer: Timer) -> void:

@@ -1,0 +1,33 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://bkkh50bfmise8"
+path="res://.godot/imported/Jungle Fever NF.ttf-57935ca83ce3013c39112a012d3726ee.fontdata"
+
+[deps]
+
+source_file="res://Fonts/Jungle Fever NF.ttf"
+dest_files=["res://.godot/imported/Jungle Fever NF.ttf-57935ca83ce3013c39112a012d3726ee.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=1
+generate_mipmaps=false
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+hinting=1
+subpixel_positioning=1
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[]
+language_support={}
+script_support={}
+opentype_features={}
