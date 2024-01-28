@@ -6,7 +6,7 @@ func handle_input(_event: InputEvent) -> void:
 
 
 func update(_delta: float) -> void:
-	state_machine.transition_to("Follow_Player")
+	pass
 
 
 func physics_update(_delta: float) -> void:
@@ -14,6 +14,8 @@ func physics_update(_delta: float) -> void:
 
 
 func enter(_msg := {}) -> void:
+	# TODO:
+	state_machine.transition_to("Follow_Player")
 	print("Attack")
 
 

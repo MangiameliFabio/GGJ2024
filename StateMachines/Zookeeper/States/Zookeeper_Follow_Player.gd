@@ -14,7 +14,7 @@ func update(_delta: float) -> void:
 	if !character.dash_on_cooldown:
 		var overlapping_bodies = character.get_node("Dash_Trigger").get_overlapping_bodies()
 		for body in overlapping_bodies:
-			if body.name == "Player":
+			if body == Gibbi.Instance:
 				print("follow trigger")
 				state_machine.transition_to("Charge_Dash")
 	
