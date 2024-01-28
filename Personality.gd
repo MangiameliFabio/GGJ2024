@@ -10,3 +10,6 @@ var attackSound : Array[AudioStream]
 @export
 var hitSound : Array[AudioStream]
 
+@export
+var showHair : bool = false
+

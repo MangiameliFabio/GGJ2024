@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://ds4pxeaop7jj5"]
+
+[ext_resource type="Shader" uid="uid://ca77y30vleeqi" path="res://Models/Entities/Accessories/hairshadershader.tres" id="1_tej8m"]
+[ext_resource type="Texture2D" uid="uid://j8v45jpopppi" path="res://Models/Entities/Accessories/LongHair_Hair1.png" id="2_favwa"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_tej8m")
+shader_parameter/Texture2DParameter = ExtResource("2_favwa")

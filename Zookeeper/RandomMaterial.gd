@@ -14,6 +14,9 @@ var current_personality : Personality
 @export
 var audioPlayer : AudioStreamPlayer3D
 
+@export
+var Hair : MeshInstance3D
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -24,7 +27,8 @@ func _ready():
 	MeshNode.get_mesh().surface_set_material(MaterialIndex, SurfaceMaterial)
 	SurfaceMaterial.albedo_texture = current_texture
 	
-	
+	if Hair != null:
+		Hair.set_visible(current_personality.showHair)
 	
 	pass # Replace with function body.
 
