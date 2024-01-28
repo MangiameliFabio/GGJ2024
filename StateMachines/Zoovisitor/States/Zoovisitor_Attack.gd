@@ -19,6 +19,7 @@ func enter(_msg := {}) -> void:
 	print("Attack")
 	zoovisitor_animation_player.play("EnemyPetting")
 	character.start_attack_cooldown()
+	state_machine.emit_attack()
 
 
 func exit() -> void:
