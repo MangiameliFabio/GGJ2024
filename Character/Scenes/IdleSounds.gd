@@ -4,7 +4,7 @@ var idle_sounds: Array[AudioStream]
 var rng = RandomNumberGenerator.new()
 
 var sound_timer = 1
-@onready var timer: Timer = $"../IdleSoundTimer"
+@export var timer: Timer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
