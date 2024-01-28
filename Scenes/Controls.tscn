@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://b630tq1qlac7a"]
+
+[ext_resource type="Script" path="res://Scenes/Controls.gd" id="1_qi5qo"]
+[ext_resource type="Theme" uid="uid://bkw3xv71hmit7" path="res://UI/ui_theme.tres" id="1_vd2yb"]
+
+[node name="Controls" type="Control"]
+custom_minimum_size = Vector2(1200, 800)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_qi5qo")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_vd2yb")
+theme_override_font_sizes/font_size = 32
+text = "Controls:
+
+Press W to move
+Hold RMB to swing your arm 
+
+Happy Slapping! "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 70
+
+[node name="Button" type="Button" parent="CenterContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("1_vd2yb")
+text = "Back"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/MarginContainer/Button" to="." method="_on_button_pressed"]
