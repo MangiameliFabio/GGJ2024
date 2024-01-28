@@ -18,7 +18,7 @@ func _ready() -> void:
 	pass
 
 func _physics_process(delta) -> void:
-	update_target_location(Gibbi.Instance.global_transform.origin)
+	pass
 
 func _process(delta) -> void:
 	pass
