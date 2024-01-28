@@ -20,8 +20,9 @@ func _ready():
 	current_personality = Personalities[randi_range(0, len(Personalities)-1)]
 	var current_texture = current_personality.skinTextures.Skins[randi_range(0, len(current_personality.skinTextures.Skins)-1)]
 	
-	var SurfaceMaterial : BaseMaterial3D = MeshNode.get_active_material(MaterialIndex)
-	SurfaceMaterial.albedo_texture =   current_texture
+	var SurfaceMaterial : BaseMaterial3D = MeshNode.get_active_material(MaterialIndex).duplicate(true)
+	MeshNode.get_mesh().surface_set_material(MaterialIndex, SurfaceMaterial)
+	SurfaceMaterial.albedo_texture = current_texture
 	
 	
 	

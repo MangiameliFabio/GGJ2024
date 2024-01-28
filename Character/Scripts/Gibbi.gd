@@ -42,6 +42,9 @@ func _input(event):
 			skeleton.enable_physics_right(false)
 			in_attack = false
 			sfx_player.play_sound("arm_in")
+			
+	if Input.is_action_just_released("ui_cancel"):
+		get_tree().quit()
 
 func get_click_world_position() -> Vector3:
 	var mouse_position = get_viewport().get_mouse_position()

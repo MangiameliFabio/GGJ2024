@@ -2,10 +2,8 @@
 
 [ext_resource type="Script" path="res://Zookeeper/RandomMaterial.gd" id="1_yeteh"]
 
-[node name="RandomPersonality" type="Node" node_paths=PackedStringArray("MeshNode", "audioPlayer")]
+[node name="RandomPersonality" type="Node"]
 script = ExtResource("1_yeteh")
-MeshNode = NodePath("")
-audioPlayer = NodePath("")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.67351, 0)
