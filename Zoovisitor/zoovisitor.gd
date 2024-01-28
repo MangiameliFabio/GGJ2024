@@ -11,6 +11,9 @@ const ATTACK_COOLDOWN: float = 5.7
 var attack_on_cooldown: bool = false
 var dead: bool = false
 
+signal OnGetHit
+signal OnAttack
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -67,5 +70,10 @@ func _dash_cooldown_timer_done(timer: Timer) -> void:
 func receive_damage(damage_direction: Vector3) -> bool:
 	if !dead:
 		state_machine.transition_to("Death", {"damage_direction": damage_direction})
+		OnGetHit.emit()
 		return true
 	return false
+	
+	
+func emit_attack():
+	OnAttack.emit()
