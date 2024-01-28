@@ -42,7 +42,6 @@ theme = ExtResource("1_vmqo7")
 text = "Start"
 
 [node name="Controls" type="Button" parent="CenterContainer/VBoxContainer"]
-visible = false
 layout_mode = 2
 theme = ExtResource("1_vmqo7")
 text = "Controls"

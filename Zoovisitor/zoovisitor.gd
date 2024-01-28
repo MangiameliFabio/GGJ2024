@@ -2,7 +2,7 @@ extends CharacterBody3D
 class_name Zoovisitor
 
 
-const SPEED = 4.0
+const SPEED = 2.0
 const ATTACK_COOLDOWN: float = 5.7
 
 @onready var navigation_agent = $Navigation_Agent

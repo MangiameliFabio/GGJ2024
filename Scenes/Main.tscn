@@ -1,11 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://bldgm50dtb14n"]
+[gd_scene load_steps=11 format=3 uid="uid://bldgm50dtb14n"]
 
 [ext_resource type="PackedScene" uid="uid://c7ahxrnjw44w4" path="res://Models/Environment/enclosure.tscn" id="1_dua2e"]
 [ext_resource type="PackedScene" uid="uid://co8yniwm7mw4v" path="res://Character/Scenes/Gibbi.tscn" id="2_103se"]
 [ext_resource type="PackedScene" uid="uid://c03j0bj1s3lfj" path="res://UI/HUD.tscn" id="4_b8wlg"]
 [ext_resource type="AudioStream" uid="uid://chmhxippv4u3j" path="res://Sounds/BG/BG_Zoo_Loopable_v2.wav" id="5_5sjso"]
 [ext_resource type="AudioStream" uid="uid://b7pktktxluudk" path="res://Music/230127_GiG_InGameMusic_V1.wav" id="5_snypc"]
-[ext_resource type="PackedScene" path="res://EnemyFactory/Enemy_Spawn_Factory.tscn" id="7_jsth4"]
+[ext_resource type="Script" path="res://Scenes/GameMusic.gd" id="5_x45o6"]
+[ext_resource type="AudioStream" uid="uid://opc36o73yduu" path="res://Sounds/Narrarator/Narr_Intro.wav" id="7_bsn2x"]
+[ext_resource type="PackedScene" uid="uid://byhf1mg2wlvtq" path="res://EnemyFactory/Enemy_Spawn_Factory.tscn" id="7_jsth4"]
 
 [sub_resource type="Environment" id="Environment_bo3lw"]
 
@@ -89,8 +91,8 @@ collision_mask = 3
 
 [node name="GameMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_snypc")
-autoplay = true
 bus = &"Soundtrack"
+script = ExtResource("5_x45o6")
 
 [node name="Ambient" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_5sjso")
@@ -98,9 +100,16 @@ autoplay = true
 bus = &"Ambient"
 
 [node name="Enemy_Spawn_Factory" parent="." instance=ExtResource("7_jsth4")]
+initial_wave_start_delay = 12.0
 enemy_wave_timer = 6.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_bsn2x")
+autoplay = true
+bus = &"SFX"
 
 [connection signal="damage_recieved" from="Gibbi" to="Hud" method="remove_banana"]
 [connection signal="enemy_killed" from="Gibbi" to="Hud" method="change_kill_count"]
+[connection signal="finished" from="AudioStreamPlayer" to="GameMusic" method="_on_audio_stream_player_finished"]
 
 [editable path="NavigationRegion3D/Enclosure"]

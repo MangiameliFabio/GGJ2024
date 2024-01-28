@@ -16,7 +16,6 @@ func physics_update(_delta: float) -> void:
 
 
 func enter(_msg := {}) -> void:
-	print("Attack")
 	zoovisitor_animation_player.play("EnemyPetting")
 	character.start_attack_cooldown()
 	character.emit_attack()

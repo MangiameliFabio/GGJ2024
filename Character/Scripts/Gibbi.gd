@@ -86,6 +86,7 @@ func _physics_process(delta):
 
 func recieve_damage():
 	health -= 1
+	$HitPlayer.play()
 	damage_recieved.emit()
 	if(health <= 0):
 		dead = true
