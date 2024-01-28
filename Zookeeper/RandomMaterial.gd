@@ -33,6 +33,6 @@ func play_hit_sound():
 	audioPlayer.play()
 	
 func play_attack_sound():
-	audioPlayer.set_stream(current_personality.attackSound[randi_range(0, len(current_personality.hitSound)-1)])
+	audioPlayer.set_stream(current_personality.attackSound[randi_range(0, len(current_personality.attackSound)-1)])
 	audioPlayer.play()
 

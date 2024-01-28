@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://b1f8sem8wk180"]
+[gd_scene load_steps=5 format=3 uid="uid://b1f8sem8wk180"]
 
 [ext_resource type="Script" path="res://Scenes/MainMenu.gd" id="1_t46mm"]
 [ext_resource type="Theme" uid="uid://bkw3xv71hmit7" path="res://UI/ui_theme.tres" id="1_vmqo7"]
+[ext_resource type="Texture2D" uid="uid://cp8jlikomm63j" path="res://Intro/Comic Intro.png" id="2_00fno"]
 [ext_resource type="AudioStream" uid="uid://cta8kl2cqhl78" path="res://Music/240127_GiG_MenuMusic_demo_v1.wav" id="3_fy404"]
 
 [node name="MainMenu" type="Control"]
@@ -14,9 +15,17 @@ grow_vertical = 2
 script = ExtResource("1_t46mm")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 0
-offset_right = 1200.0
-offset_bottom = 800.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.358333
+anchor_top = 0.17375
+anchor_right = 1.01083
+anchor_bottom = 0.826456
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_00fno")
+expand_mode = 5
+metadata/_edit_use_anchors_ = true
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 0
