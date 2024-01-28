@@ -9,7 +9,7 @@ func change_kill_count():
 	$HBoxContainer2/Label.text = str(GameManager.kill_count)
 
 func remove_banana():
-	banana.pop_back()
+	$HBoxContainer.remove_child(banana.pop_back())
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

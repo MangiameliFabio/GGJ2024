@@ -34,6 +34,7 @@ func update_target_location(target_location: Vector3) -> void:
 func _on_navigation_agent_target_reached():
 	if !attack_on_cooldown and !dead:
 		state_machine.transition_to("Attack")
+		Gibbi.Instance.recieve_damage()
 
 
 func start_attack_cooldown() -> void:
