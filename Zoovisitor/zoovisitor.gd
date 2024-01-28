@@ -17,7 +17,6 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 func _ready() -> void:
 	pass
 
-
 func _physics_process(delta) -> void:
 	pass
 
@@ -65,6 +64,8 @@ func _dash_cooldown_timer_done(timer: Timer) -> void:
 	#dash_on_cooldown = false
 	timer.queue_free()
 
-func receive_damage(damage_direction: Vector3) -> void:
+func receive_damage(damage_direction: Vector3) -> bool:
 	if !dead:
 		state_machine.transition_to("Death", {"damage_direction": damage_direction})
+		return true
+	return false

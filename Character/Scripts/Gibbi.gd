@@ -12,6 +12,10 @@ const ROTATION_SPEED = 0.005
 @onready var skeleton: GibiSkeleton = $Collision/GibbiSkeleton
 @onready var anim_player: AnimationPlayer = $Collision/GibbiSkeleton/AnimationPlayer
 @onready var anim_tree: AnimationTree = $Collision/GibbiSkeleton/AnimationTree
+@onready var slap_player: AudioStreamPlayer = $SlapPlayer
+@onready var sfx_player: AudioStreamPlayer = $SFXPlayer
+
+
 var in_attack = false
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -30,9 +34,11 @@ func _input(event):
 		if Input.is_action_just_pressed("right_arm"):
 			skeleton.enable_physics_right(true)
 			in_attack = true
+			sfx_player.play_sound("arm_out")
 		if Input.is_action_just_released("right_arm"):
 			skeleton.enable_physics_right(false)
 			in_attack = false
+			sfx_player.play_sound("arm_in")
 
 func get_click_world_position() -> Vector3:
 	var mouse_position = get_viewport().get_mouse_position()
@@ -47,7 +53,10 @@ func get_click_world_position() -> Vector3:
 
 func _physics_process(delta):
 	if in_attack and (skeleton.r_hand_velocity.length_squared() > 10):
-		skeleton.check_for_damage()
+		if (skeleton.last_pos_r_hand - position).length_squared() >= 2:
+			sfx_player.play_swoosh()
+		if skeleton.check_for_damage():
+			slap_player.play_ran_slap()
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta

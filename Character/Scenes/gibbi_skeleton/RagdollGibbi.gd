@@ -18,12 +18,14 @@ func enable_physics_right(enable: bool) -> void:
 	else:
 		skeleton.physical_bones_stop_simulation()
 	
-func check_for_damage() -> void:
+func check_for_damage() -> bool:
 	for collision in dmg_collisions:
 		var overlapping = collision.get_overlapping_bodies()
 		for obj in overlapping:
 			if obj.is_in_group("enemy"):
-				obj.receive_damage(obj.global_position - collision.global_position);
+				if obj.receive_damage(obj.global_position - collision.global_position):
+					return true
+	return false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
