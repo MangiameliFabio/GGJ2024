@@ -3,7 +3,7 @@ class_name Gibbi
 
 static var Instance : Node
 
-const SPEED = 5.0
+const SPEED = 4.0
 const JUMP_VELOCITY = 4.5
 const ROTATION_SPEED = 0.005
 

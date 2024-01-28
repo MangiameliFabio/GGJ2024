@@ -16,6 +16,7 @@ var StartColor : Color = Color(0.8, 0.4, 0.8)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	randomize()
 	StartColor.h = randf()
 	
 	ShirtMaterial.set_shader_parameter("Color", StartColor)

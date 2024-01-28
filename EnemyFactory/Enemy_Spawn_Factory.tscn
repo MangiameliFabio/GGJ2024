@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://byhf1mg2wlvtq"]
+
+[ext_resource type="Script" path="res://EnemyFactory/Enemy_Spawn_Factory.gd" id="1_np6vw"]
+[ext_resource type="PackedScene" uid="uid://c34jh3v61xojh" path="res://Zookeeper/Zookeeper.tscn" id="2_6r810"]
+[ext_resource type="PackedScene" uid="uid://cbt8ur5rbka7c" path="res://Zoovisitor/Zoovisitor.tscn" id="3_mfe8t"]
+
+[node name="Enemy_Spawn_Factory" type="Node"]
+script = ExtResource("1_np6vw")
+zookeeper_scene = ExtResource("2_6r810")
+zoovisitor_scene = ExtResource("3_mfe8t")
+
+[node name="Enemy_Spawn_0" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0891, 1.096, -19.4593)
+
+[node name="Enemy_Spawn_1" type="Marker3D" parent="."]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 10.1846, 0.957048, 18.0175)
+
+[node name="Enemy_Spawn_2" type="Marker3D" parent="."]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, -21.0915, 0.957048, -0.119055)
+
+[node name="Spawn_Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Spawn_Timer" to="." method="_on_spawn_timer_finished"]
