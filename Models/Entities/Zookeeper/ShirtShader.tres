@@ -23,7 +23,6 @@ void fragment() {
 
 }
 "
-graph_offset = Vector2(-603.604, 114.503)
 nodes/fragment/2/node = SubResource("VisualShaderNodeColorParameter_tbwmv")
 nodes/fragment/2/position = Vector2(-132.266, 285.54)
 nodes/fragment/connections = PackedInt32Array(2, 0, 0, 0)

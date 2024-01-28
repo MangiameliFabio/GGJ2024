@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Personality" load_steps=9 format=3 uid="uid://bdvu75urkeknk"]
+
+[ext_resource type="Script" path="res://Personality.gd" id="1_kppp1"]
+[ext_resource type="AudioStream" uid="uid://bf530htgubt6n" path="res://Sounds/Enemy/Fem_B/Atck_Fem_B_1.wav" id="1_v5agq"]
+[ext_resource type="AudioStream" uid="uid://1k5b2jfcttgv" path="res://Sounds/Enemy/Fem_B/Atck_Fem_B_2.wav" id="2_tj5kf"]
+[ext_resource type="AudioStream" uid="uid://bygnmrf552tb0" path="res://Sounds/Enemy/Fem_B/Atck_Fem_B_3.wav" id="3_wf0i0"]
+[ext_resource type="AudioStream" uid="uid://b4epmibl3emy" path="res://Sounds/Enemy/Fem_B/Hurt_Fem_B_1.wav" id="4_ulaku"]
+[ext_resource type="AudioStream" uid="uid://6neybtd1tug6" path="res://Sounds/Enemy/Fem_B/Hurt_Fem_B_2.wav" id="5_ol378"]
+[ext_resource type="AudioStream" uid="uid://bhcskut2cc02n" path="res://Sounds/Enemy/Fem_B/Hurt_Fem_B_3.wav" id="6_rmy8d"]
+[ext_resource type="Resource" uid="uid://y8gcmit3fi2" path="res://Personalities/Skins/Female_Textures.tres" id="8_d84b3"]
+
+[resource]
+script = ExtResource("1_kppp1")
+skinTextures = ExtResource("8_d84b3")
+attackSound = Array[AudioStream]([ExtResource("1_v5agq"), ExtResource("2_tj5kf"), ExtResource("3_wf0i0")])
+hitSound = Array[AudioStream]([ExtResource("4_ulaku"), ExtResource("5_ol378"), ExtResource("6_rmy8d")])

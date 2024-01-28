@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SkinTextures" load_steps=5 format=3 uid="uid://b1clvpcq0d2n0"]
+
+[ext_resource type="Texture2D" uid="uid://dx4xsvxvqd7ih" path="res://Models/Entities/Zookeeper/EnemyBodyTex2.png" id="1_6211p"]
+[ext_resource type="Texture2D" uid="uid://kv7gsjlvrosh" path="res://Models/Entities/Zookeeper/EnemyBodyTex3.png" id="2_5kb6x"]
+[ext_resource type="Texture2D" uid="uid://bv7pnumcbhqb4" path="res://Models/Entities/Zookeeper/EnemyBodyTex.png" id="3_34hqx"]
+[ext_resource type="Script" path="res://SkinTextures.gd" id="4_a70uo"]
+
+[resource]
+script = ExtResource("4_a70uo")
+Skins = Array[Texture2D]([ExtResource("1_6211p"), ExtResource("2_5kb6x"), ExtResource("3_34hqx")])

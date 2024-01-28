@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://ctfstbbxrt5mh"]
 
-[ext_resource type="Shader" uid="uid://c64j4lvwpvao2" path="res://Models/Entities/Zookeeper/ShirtShader.tres" id="1_8wimj"]
+[ext_resource type="Shader" uid="uid://bc4my8be82d57" path="res://Models/Entities/Zookeeper/ShirtShader.tres" id="1_8wimj"]
 
 [resource]
 resource_local_to_scene = true

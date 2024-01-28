@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="SkinTextures" load_steps=3 format=3 uid="uid://drua3wuh1orb6"]
+
+[ext_resource type="Texture2D" uid="uid://dx4xsvxvqd7ih" path="res://Models/Entities/Zookeeper/EnemyBodyTex2.png" id="1_42e1w"]
+[ext_resource type="Script" path="res://SkinTextures.gd" id="2_0ssnd"]
+
+[resource]
+script = ExtResource("2_0ssnd")
+Skins = Array[Texture2D]([ExtResource("1_42e1w")])

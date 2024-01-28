@@ -3,8 +3,7 @@
 [ext_resource type="Script" path="res://Zookeeper/RandomShirt.gd" id="1_2ri0y"]
 [ext_resource type="Material" uid="uid://ctfstbbxrt5mh" path="res://Models/Entities/Zookeeper/ShirtMaterial.tres" id="2_chjws"]
 
-[node name="RandomMaterialColor" type="Node" node_paths=PackedStringArray("MeshNode")]
+[node name="RandomMaterialColor" type="Node"]
 script = ExtResource("1_2ri0y")
-MeshNode = NodePath("")
 ShirtMaterial = ExtResource("2_chjws")
 StartColor = Color(0.635294, 0.545098, 0.654902, 1)

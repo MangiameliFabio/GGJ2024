@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Personality" load_steps=10 format=3 uid="uid://cnhawqus81pf"]
+
+[ext_resource type="AudioStream" uid="uid://cfyj5rg0fjani" path="res://Sounds/Enemy/Male_B/Atck_Male_B_1.wav" id="1_4peue"]
+[ext_resource type="Script" path="res://Personality.gd" id="1_jpw1o"]
+[ext_resource type="AudioStream" uid="uid://beqmaal2vp781" path="res://Sounds/Enemy/Male_B/Atck_Male_B_2.wav" id="2_ret7b"]
+[ext_resource type="AudioStream" uid="uid://ditb71t6rospi" path="res://Sounds/Enemy/Male_B/Atck_Male_B_3.wav" id="3_aq6gs"]
+[ext_resource type="AudioStream" uid="uid://cdqcum7pb58qm" path="res://Sounds/Enemy/Male_B/Hurt_Male_B_1.wav" id="4_ydp7u"]
+[ext_resource type="AudioStream" uid="uid://bckmwlck232v5" path="res://Sounds/Enemy/Male_B/Hurt_Male_B_2.wav" id="5_88jhi"]
+[ext_resource type="AudioStream" uid="uid://dhpjuvyvlorvb" path="res://Sounds/Enemy/Male_B/Hurt_Male_B_3.wav" id="6_kkjx5"]
+[ext_resource type="AudioStream" uid="uid://dqycn8ghkkhsu" path="res://Sounds/Enemy/Male_B/Hurt_Male_B_4.wav" id="7_e3vm7"]
+[ext_resource type="Resource" uid="uid://b1clvpcq0d2n0" path="res://Personalities/Skins/Male_Textures.tres" id="9_0231v"]
+
+[resource]
+script = ExtResource("1_jpw1o")
+skinTextures = ExtResource("9_0231v")
+attackSound = Array[AudioStream]([ExtResource("1_4peue"), ExtResource("2_ret7b"), ExtResource("3_aq6gs")])
+hitSound = Array[AudioStream]([ExtResource("4_ydp7u"), ExtResource("5_88jhi"), ExtResource("6_kkjx5"), ExtResource("7_e3vm7")])
