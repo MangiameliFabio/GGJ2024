@@ -6,7 +6,7 @@ var banana: Array[Node]
 var gibbi: Gibbi
 
 func change_kill_count():
-	$HBoxContainer2/Label.text = str(gibbi.kill_count)
+	$HBoxContainer2/Label.text = str(GameManager.kill_count)
 
 func remove_banana():
 	banana.pop_back()

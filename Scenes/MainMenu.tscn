@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b1f8sem8wk180"]
 
 [ext_resource type="Script" path="res://Scenes/MainMenu.gd" id="1_t46mm"]
-[ext_resource type="Theme" uid="uid://bkw3xv71hmit7" path="res://UI/button_theme.tres" id="1_vmqo7"]
+[ext_resource type="Theme" uid="uid://bkw3xv71hmit7" path="res://UI/ui_theme.tres" id="1_vmqo7"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -32,6 +32,7 @@ theme = ExtResource("1_vmqo7")
 text = "Start"
 
 [node name="Controls" type="Button" parent="CenterContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme = ExtResource("1_vmqo7")
 text = "Controls"
