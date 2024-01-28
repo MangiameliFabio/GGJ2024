@@ -2,14 +2,14 @@ extends Control
 
 @export var banana_scene: PackedScene
 
-var banana: Array[Node]
+var bananas: Array[Node]
 var gibbi: Gibbi
 
 func change_kill_count():
 	$HBoxContainer2/Label.text = str(GameManager.kill_count)
 
 func remove_banana():
-	$HBoxContainer.remove_child(banana.pop_back())
+	$HBoxContainer.remove_child(bananas.pop_back())
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,6 +18,7 @@ func _ready():
 	
 	for i in gibbi.health:
 		var banana = banana_scene.instantiate()
+		bananas.append(banana)
 		$HBoxContainer.add_child(banana)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

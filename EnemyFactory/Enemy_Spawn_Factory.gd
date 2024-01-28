@@ -4,6 +4,7 @@ const VISITOR_SPAWN_RATE: float = 0.8
 
 @export var zookeeper_scene: PackedScene
 @export var zoovisitor_scene: PackedScene
+@export var initial_wave_start_delay: float = 5.0
 @export var enemy_wave_timer: float = 5.0
 
 @onready var spawn_points: Array[Node] = self.get_children()
@@ -15,6 +16,9 @@ var tmp_counter: int = 0
 
 
 func _ready():
+	
+	await get_tree().create_timer(initial_wave_start_delay).timeout
+	
 	rng.randomize()
 	spawn_next_wave()
 	spawn_timer.wait_time = enemy_wave_timer

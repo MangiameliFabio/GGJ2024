@@ -86,7 +86,7 @@ func recieve_damage():
 	damage_recieved.emit()
 	if(health <= 0):
 		dead = true
-		skeleton.physical_bones_start_simulation()
+		skeleton.skeleton.physical_bones_start_simulation()
 
 		var timer: Timer = Timer.new()
 		add_child(timer)
