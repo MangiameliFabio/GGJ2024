@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://c7ahxrnjw44w4"]
+[gd_scene load_steps=8 format=3 uid="uid://c7ahxrnjw44w4"]
 
 [ext_resource type="PackedScene" uid="uid://domd3j5niuo1s" path="res://Models/Environment/Enclosure.glb" id="1_20d81"]
 [ext_resource type="Texture2D" uid="uid://78jq0qrc20lv" path="res://Textures/sand1.png" id="2_sxoc8"]
 [ext_resource type="Shader" uid="uid://bnfvp7ewnxarw" path="res://Models/Environment/WaterShader.tres" id="3_8r8m5"]
+[ext_resource type="Texture2D" uid="uid://bxb2nbbmvew35" path="res://Textures/Noise/SeamlessNoise.png" id="4_mhckp"]
 [ext_resource type="Texture2D" uid="uid://cv5eyu4ssocko" path="res://Textures/WaterFoam.png" id="4_slo63"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l0yfi"]
@@ -14,6 +15,7 @@ texture_filter = 0
 render_priority = 0
 shader = ExtResource("3_8r8m5")
 shader_parameter/WaterColor = Color(0.160784, 0.329412, 0.521569, 1)
+shader_parameter/Noise = ExtResource("4_mhckp")
 shader_parameter/Texture2DParameter = ExtResource("4_slo63")
 
 [node name="Enclosure" instance=ExtResource("1_20d81")]
