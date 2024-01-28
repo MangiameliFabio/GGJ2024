@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bldgm50dtb14n"]
+[gd_scene load_steps=9 format=3 uid="uid://bldgm50dtb14n"]
 
 [ext_resource type="PackedScene" uid="uid://c7ahxrnjw44w4" path="res://Models/Environment/enclosure.tscn" id="1_dua2e"]
 [ext_resource type="PackedScene" uid="uid://co8yniwm7mw4v" path="res://Character/Scenes/Gibbi.tscn" id="2_103se"]
 [ext_resource type="PackedScene" uid="uid://c34jh3v61xojh" path="res://Zookeeper/Zookeeper.tscn" id="3_5efq8"]
 [ext_resource type="PackedScene" uid="uid://c03j0bj1s3lfj" path="res://UI/HUD.tscn" id="4_b8wlg"]
+[ext_resource type="AudioStream" uid="uid://chmhxippv4u3j" path="res://Sounds/BG/BG_Zoo_Loopable_v2.wav" id="5_5sjso"]
+[ext_resource type="AudioStream" uid="uid://b7pktktxluudk" path="res://Music/230127_GiG_InGameMusic_V1.wav" id="5_snypc"]
 
 [sub_resource type="Environment" id="Environment_bo3lw"]
 
@@ -86,6 +88,16 @@ collision_mask = 3
 transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 3.60371, 0.1896, -1.72465)
 
 [node name="Hud" parent="." instance=ExtResource("4_b8wlg")]
+
+[node name="GameMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_snypc")
+autoplay = true
+bus = &"Soundtrack"
+
+[node name="Ambient" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_5sjso")
+autoplay = true
+bus = &"Ambient"
 
 [connection signal="damage_recieved" from="Gibbi" to="Hud" method="remove_banana"]
 [connection signal="enemy_killed" from="Gibbi" to="Hud" method="change_kill_count"]
