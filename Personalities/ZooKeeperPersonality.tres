@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Personality" load_steps=8 format=3 uid="uid://dkxeyf5qc2l7g"]
+
+[ext_resource type="Script" path="res://Personality.gd" id="1_802kg"]
+[ext_resource type="AudioStream" uid="uid://drhl8tou8odkl" path="res://Sounds/Enemy/Dash_Enemy_Hit.wav" id="1_adegd"]
+[ext_resource type="AudioStream" uid="uid://nawsh28o2526" path="res://Sounds/Enemy/Male_A/Hurt_Male_A_1.wav" id="2_fplku"]
+[ext_resource type="AudioStream" uid="uid://vrsveotyw1ar" path="res://Sounds/Enemy/Male_A/Hurt_Male_A_2.wav" id="3_fs55b"]
+[ext_resource type="AudioStream" uid="uid://dalvkm6udmdju" path="res://Sounds/Enemy/Male_A/Hurt_Male_A_3.wav" id="4_nyn1p"]
+[ext_resource type="AudioStream" uid="uid://cnefhyhcmosj7" path="res://Sounds/Enemy/Male_A/Hurt_Male_A_4.wav" id="5_e84lv"]
+[ext_resource type="Resource" uid="uid://drua3wuh1orb6" path="res://Personalities/Skins/ZooKeeperTextures.tres" id="7_prqpa"]
+
+[resource]
+script = ExtResource("1_802kg")
+skinTextures = ExtResource("7_prqpa")
+attackSound = Array[AudioStream]([ExtResource("1_adegd")])
+hitSound = Array[AudioStream]([ExtResource("2_fplku"), ExtResource("3_fs55b"), ExtResource("4_nyn1p"), ExtResource("5_e84lv")])

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c34jh3v61xojh"]
+[gd_scene load_steps=19 format=3 uid="uid://c34jh3v61xojh"]
 
 [ext_resource type="Script" path="res://Zookeeper/zookeeper.gd" id="1_nf5op"]
 [ext_resource type="Script" path="res://StateMachines/Zookeeper/Zookeeper_State_Machine.gd" id="2_sgkx4"]
@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://b1xe15ymx2g4h" path="res://Models/Entities/Accessories/Cap.glb" id="10_l25wj"]
 [ext_resource type="PackedScene" uid="uid://cu3yh1k32fsye" path="res://Prefabs/random_material_color.tscn" id="12_pkhcq"]
 [ext_resource type="Shader" uid="uid://bc4my8be82d57" path="res://Models/Entities/Zookeeper/ShirtShader.tres" id="13_fhw7r"]
+[ext_resource type="PackedScene" uid="uid://cquj4jyxco6ym" path="res://Prefabs/random_personality.tscn" id="13_x40iv"]
+[ext_resource type="Resource" uid="uid://dkxeyf5qc2l7g" path="res://Personalities/ZooKeeperPersonality.tres" id="14_bus4n"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xat7b"]
 
@@ -208,6 +210,13 @@ ShirtMaterial = SubResource("ShaderMaterial_jg73q")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Dash_Trigger"]
 shape = SubResource("SphereShape3D_4upli")
 
+[node name="RandomPersonality" parent="." node_paths=PackedStringArray("MeshNode", "audioPlayer") instance=ExtResource("13_x40iv")]
+MeshNode = NodePath("../Zookeeper_Model/Armature_001/Skeleton3D/Zookeeper")
+Personalities = Array[Resource("res://Personality.gd")]([ExtResource("14_bus4n")])
+audioPlayer = NodePath("AudioStreamPlayer3D")
+
+[connection signal="OnAttack" from="." to="RandomPersonality" method="play_attack_sound"]
+[connection signal="OnGetHit" from="." to="RandomPersonality" method="play_hit_sound"]
 [connection signal="target_reached" from="Navigation_Agent" to="." method="_on_navigation_agent_target_reached"]
 [connection signal="animation_finished" from="Zookeeper_Model/AnimationPlayer" to="ZookeeperStateMachine/Charge_Dash" method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="Zookeeper_Model/AnimationPlayer" to="ZookeeperStateMachine/Dash" method="_on_animation_player_animation_finished"]
@@ -215,3 +224,4 @@ shape = SubResource("SphereShape3D_4upli")
 
 [editable path="Zookeeper_Model"]
 [editable path="Zookeeper_Model/Armature_001/Skeleton3D/BoneAttachment3D/Offset/Cap2"]
+[editable path="RandomPersonality"]
