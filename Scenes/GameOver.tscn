@@ -1,3 +1,46 @@
-[gd_scene format=3 uid="uid://dy4sjevtt1fs6"]
+[gd_scene load_steps=2 format=3 uid="uid://dy4sjevtt1fs6"]
 
-[node name="GameOver" type="Node2D"]
+[ext_resource type="Theme" uid="uid://bkw3xv71hmit7" path="res://UI/ui_theme.tres" id="1_e2kre"]
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1200.0
+offset_bottom = 800.0
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_right = 1200.0
+offset_bottom = 800.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_e2kre")
+theme_override_font_sizes/font_size = 72
+text = "GAME OVER"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 90
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Restart" type="Button" parent="CenterContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_e2kre")
+text = "Restart"
+
+[node name="Main Menu" type="Button" parent="CenterContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_e2kre")
+text = "Main Menu"
+
+[node name="Quit" type="Button" parent="CenterContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_e2kre")
+text = "Quit"

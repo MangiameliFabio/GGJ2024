@@ -15,8 +15,6 @@ const ROTATION_SPEED = 0.005
 @onready var slap_player: AudioStreamPlayer = $SlapPlayer
 @onready var sfx_player: AudioStreamPlayer = $SFXPlayer
 
-var kill_count = 0
-
 signal enemy_killed
 signal damage_recieved
 
@@ -30,6 +28,7 @@ var dead = false
 signal running(IsRunning : bool)
 
 func _ready():
+	GameManager.kill_count = 0
 	Instance = self
 	anim_player.play("GibbiIdle")
 
@@ -60,7 +59,7 @@ func _physics_process(delta):
 		if (skeleton.last_pos_r_hand - position).length_squared() >= 2:
 			sfx_player.play_swoosh()
 		if skeleton.check_for_damage():
-			kill_count += 1
+			GameManager.kill_count += 1
 			enemy_killed.emit()
 			slap_player.play_ran_slap()
 	# Add the gravity.
