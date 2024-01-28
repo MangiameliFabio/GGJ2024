@@ -28,14 +28,12 @@ func _ready() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	state.handle_input(event)
 
-
 func _process(delta: float) -> void:
-	state.update(delta)
-
+	if not character.dead:
+		state.update(delta)
 
 func _physics_process(delta: float) -> void:
 	state.physics_update(delta)
-
 
 #Transition to new state.
 #Inputs:
