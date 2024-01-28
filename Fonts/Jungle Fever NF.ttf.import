@@ -2,7 +2,11 @@
 
 importer="font_data_dynamic"
 type="FontFile"
+<<<<<<< HEAD
 uid="uid://bkkh50bfmise8"
+=======
+uid="uid://bapdiaf0nnohl"
+>>>>>>> 760b30ecce83ad3979d6f8c92c4146a9050a0bd7
 path="res://.godot/imported/Jungle Fever NF.ttf-57935ca83ce3013c39112a012d3726ee.fontdata"
 
 [deps]

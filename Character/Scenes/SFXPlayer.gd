@@ -1,6 +1,6 @@
 extends AudioStreamPlayer
 
-var arm_out: AudioStream = load("res://Sounds/Character/Arm_Deactivate.wav")
+var arm_out: AudioStream = load("res://Sounds/Character/Arm_Activate.wav")
 var arm_in: AudioStream = load("res://Sounds/Character/Arm_Deactivate.wav")
 var swoosh: Array[AudioStream]
 var swoosh_on_cd = false

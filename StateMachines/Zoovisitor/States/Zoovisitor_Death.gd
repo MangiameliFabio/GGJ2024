@@ -19,7 +19,7 @@ func enter(_msg := {}) -> void:
 	$"../../Zookeeper_Model/Armature_001/Skeleton3D".physical_bones_start_simulation()
 	var impulse_dir = _msg.damage_direction as Vector3
 	impulse_dir.y = 0.5
-	
+	$"../../World_Collision".disabled = true
 	bone.apply_central_impulse(impulse_dir.normalized() * 125)
 
 func exit() -> void:

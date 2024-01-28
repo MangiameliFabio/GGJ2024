@@ -15,6 +15,9 @@ var dash_on_cooldown: bool = false
 var is_invincible: bool = false
 var dead: bool
 
+signal OnGetHit
+signal OnAttack
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -24,6 +27,7 @@ func _ready() -> void:
 func receive_damage(damage_direction: Vector3) -> bool:
 	if !dead and !is_invincible:
 		state_machine.transition_to("Death", {"damage_direction": damage_direction})
+		OnGetHit.emit()
 		return true
 	return false
 
@@ -74,3 +78,6 @@ func start_dash_cooldown() -> void:
 func _dash_cooldown_timer_done(timer: Timer) -> void:
 	dash_on_cooldown = false
 	timer.queue_free()
+	
+func emit_attack():
+	OnAttack.emit()
