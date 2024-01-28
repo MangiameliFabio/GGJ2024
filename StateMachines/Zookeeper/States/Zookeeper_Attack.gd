@@ -17,6 +17,7 @@ func enter(_msg := {}) -> void:
 	# TODO:
 	state_machine.transition_to("Follow_Player")
 	print("Attack")
+	state_machine.emit_attack()
 
 
 func exit() -> void:
