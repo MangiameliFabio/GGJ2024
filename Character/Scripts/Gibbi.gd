@@ -15,6 +15,10 @@ const ROTATION_SPEED = 0.005
 @onready var slap_player: AudioStreamPlayer = $SlapPlayer
 @onready var sfx_player: AudioStreamPlayer = $SFXPlayer
 
+var kill_count = 0
+
+signal enemy_killed
+signal damage_recieved
 
 var in_attack = false
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -56,6 +60,8 @@ func _physics_process(delta):
 		if (skeleton.last_pos_r_hand - position).length_squared() >= 2:
 			sfx_player.play_swoosh()
 		if skeleton.check_for_damage():
+			kill_count += 1
+			enemy_killed.emit()
 			slap_player.play_ran_slap()
 	# Add the gravity.
 	if not is_on_floor():
@@ -78,9 +84,18 @@ func _physics_process(delta):
 
 func recieve_damage():
 	health -= 1
+	damage_recieved.emit()
 	if(health <= 0):
 		dead = true
 		skeleton.physical_bones_start_simulation()
+
+		var timer: Timer = Timer.new()
+		add_child(timer)
+		timer.one_shot = true
+		timer.autostart = false
+		timer.wait_time = 5
+		timer.timeout.connect(func(): TransitionManager.change_scene("res://Scenes/GameOver.tscn"))
+		timer.start()
 
 func turn(mouse_pos):
 	var global_pos = collison.global_transform.origin

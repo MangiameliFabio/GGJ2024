@@ -20,10 +20,11 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 func _ready() -> void:
 	pass
 
-func receive_damage(damage_direction: Vector3) -> void:
+func receive_damage(damage_direction: Vector3) -> bool:
 	if !dead:
 		state_machine.transition_to("Death", {"damage_direction": damage_direction})
-		pass
+		return true
+	return false
 
 func _physics_process(delta) -> void:
 	update_target_location(Gibbi.Instance.global_transform.origin)
