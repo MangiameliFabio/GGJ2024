@@ -33,9 +33,7 @@ func update_target_location(target_location: Vector3) -> void:
 
 
 func _on_navigation_agent_target_reached():
-	if !attack_on_cooldown and !dead:
-		state_machine.transition_to("Attack")
-		start_attack_cooldown()
+	pass
 
 
 func start_attack_cooldown() -> void:
@@ -55,7 +53,7 @@ func _attack_cooldown_timer_done(timer: Timer) -> void:
 
 
 func _on_dash_trigger_entered(body):
-	if body.name == "Player" and !dash_on_cooldown:
+	if body == Gibbi.Instance and !dash_on_cooldown:
 		print("trigger on enemy")
 		state_machine.transition_to("Charge_Dash")
 
