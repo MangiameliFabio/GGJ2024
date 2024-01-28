@@ -15,3 +15,4 @@ script = ExtResource("1_jpw1o")
 skinTextures = ExtResource("9_0231v")
 attackSound = Array[AudioStream]([ExtResource("1_4peue"), ExtResource("2_ret7b"), ExtResource("3_aq6gs")])
 hitSound = Array[AudioStream]([ExtResource("4_ydp7u"), ExtResource("5_88jhi"), ExtResource("6_kkjx5"), ExtResource("7_e3vm7")])
+showHair = false

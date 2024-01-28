@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://borwhx3xp2lc4"]
+
+[node name="Backdrop" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.196078, 0.12549, 0.0313726, 1)

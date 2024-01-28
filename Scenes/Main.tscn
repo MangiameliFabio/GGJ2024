@@ -7,7 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://b7pktktxluudk" path="res://Music/230127_GiG_InGameMusic_V1.wav" id="5_snypc"]
 [ext_resource type="Script" path="res://Scenes/GameMusic.gd" id="5_x45o6"]
 [ext_resource type="AudioStream" uid="uid://opc36o73yduu" path="res://Sounds/Narrarator/Narr_Intro.wav" id="7_bsn2x"]
-[ext_resource type="PackedScene" uid="uid://byhf1mg2wlvtq" path="res://EnemyFactory/Enemy_Spawn_Factory.tscn" id="7_jsth4"]
+[ext_resource type="PackedScene" path="res://EnemyFactory/Enemy_Spawn_Factory.tscn" id="7_jsth4"]
 
 [sub_resource type="Environment" id="Environment_bo3lw"]
 

@@ -1,13 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://b630tq1qlac7a"]
+[gd_scene load_steps=4 format=3 uid="uid://b630tq1qlac7a"]
 
 [ext_resource type="Script" path="res://Scenes/Controls.gd" id="1_qi5qo"]
 [ext_resource type="Theme" uid="uid://bkw3xv71hmit7" path="res://UI/ui_theme.tres" id="1_vd2yb"]
+[ext_resource type="PackedScene" uid="uid://borwhx3xp2lc4" path="res://backdrop.tscn" id="2_5k2w6"]
 
 [node name="Controls" type="Control"]
 custom_minimum_size = Vector2(1200, 800)
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_qi5qo")
+
+[node name="Backdrop" parent="." instance=ExtResource("2_5k2w6")]
+layout_mode = 1
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
