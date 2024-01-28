@@ -12,6 +12,7 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hin0a"]
 
 [resource]
+Button/colors/font_color = Color(1, 0.898039, 0.109804, 1)
 Button/colors/font_hover_color = Color(0.842162, 0.375696, 0, 1)
 Button/colors/font_pressed_color = Color(0.588235, 0.254902, 0, 1)
 Button/font_sizes/font_size = 42
@@ -20,4 +21,5 @@ Button/styles/focus = SubResource("StyleBoxEmpty_8488y")
 Button/styles/hover = SubResource("StyleBoxEmpty_tubn0")
 Button/styles/normal = SubResource("StyleBoxEmpty_b8he0")
 Button/styles/pressed = SubResource("StyleBoxEmpty_hin0a")
+Label/colors/font_color = Color(1, 0.898039, 0.109804, 1)
 Label/fonts/font = ExtResource("1_bk2vo")

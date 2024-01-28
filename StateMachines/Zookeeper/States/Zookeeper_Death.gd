@@ -17,10 +17,9 @@ func physics_update(_delta: float) -> void:
 func enter(_msg := {}) -> void:
 	character.dead = true
 	$"../../Zookeeper_Model/Armature_001/Skeleton3D".physical_bones_start_simulation()
-	print(_msg.damage_direction)
 	var impulse_dir = _msg.damage_direction as Vector3
 	impulse_dir.y = 0.5
-	print(impulse_dir)
+	$"../../World_Collision".disabled = true
 	
 	bone.apply_central_impulse(impulse_dir.normalized() * 125)
 
