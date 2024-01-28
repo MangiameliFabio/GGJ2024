@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://boouo3wrwdyca"
+path="res://.godot/imported/Dash_Enemy_Windup_ 2.wav-5058a44f65ba7ed825e5511f6560f8cc.sample"
+
+[deps]
+
+source_file="res://Sounds/Enemy/Dash_Windup/Dash_Enemy_Windup_ 2.wav"
+dest_files=["res://.godot/imported/Dash_Enemy_Windup_ 2.wav-5058a44f65ba7ed825e5511f6560f8cc.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
