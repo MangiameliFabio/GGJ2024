@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bldgm50dtb14n"]
+[gd_scene load_steps=12 format=3 uid="uid://bldgm50dtb14n"]
 
 [ext_resource type="PackedScene" uid="uid://c7ahxrnjw44w4" path="res://Models/Environment/enclosure.tscn" id="1_dua2e"]
 [ext_resource type="PackedScene" uid="uid://co8yniwm7mw4v" path="res://Character/Scenes/Gibbi.tscn" id="2_103se"]
@@ -7,7 +7,8 @@
 [ext_resource type="AudioStream" uid="uid://b7pktktxluudk" path="res://Music/230127_GiG_InGameMusic_V1.wav" id="5_snypc"]
 [ext_resource type="Script" path="res://Scenes/GameMusic.gd" id="5_x45o6"]
 [ext_resource type="AudioStream" uid="uid://opc36o73yduu" path="res://Sounds/Narrarator/Narr_Intro.wav" id="7_bsn2x"]
-[ext_resource type="PackedScene" path="res://EnemyFactory/Enemy_Spawn_Factory.tscn" id="7_jsth4"]
+[ext_resource type="PackedScene" uid="uid://byhf1mg2wlvtq" path="res://EnemyFactory/Enemy_Spawn_Factory.tscn" id="7_jsth4"]
+[ext_resource type="PackedScene" uid="uid://ctgosm05fxk2o" path="res://Models/Environment/speaker_2.tscn" id="9_0d2cv"]
 
 [sub_resource type="Environment" id="Environment_bo3lw"]
 
@@ -107,6 +108,15 @@ enemy_wave_timer = 6.0
 stream = ExtResource("7_bsn2x")
 autoplay = true
 bus = &"SFX"
+
+[node name="Speaker2" parent="." instance=ExtResource("9_0d2cv")]
+transform = Transform3D(-0.288447, 0, -0.957496, 0, 1, 0, 0.957496, 0, -0.288447, 9.95007, -1.34988, -5.9608)
+
+[node name="Speaker4" parent="." instance=ExtResource("9_0d2cv")]
+transform = Transform3D(0.411896, 0, -0.911231, 0, 1, 0, 0.911231, 0, 0.411896, -10.2278, -1.50444, -6.02562)
+
+[node name="Speaker3" parent="." instance=ExtResource("9_0d2cv")]
+transform = Transform3D(0.840207, 0, -0.542266, 0, 1, 0, 0.542266, 0, 0.840207, -0.310342, -1.35192, 11.4028)
 
 [connection signal="damage_recieved" from="Gibbi" to="Hud" method="remove_banana"]
 [connection signal="enemy_killed" from="Gibbi" to="Hud" method="change_kill_count"]
