@@ -16,8 +16,7 @@ grow_vertical = 2
 script = ExtResource("1_t46mm")
 
 [node name="Backdrop" parent="." instance=ExtResource("2_i1rxc")]
-layout_mode = 0
-anchors_preset = 0
+layout_mode = 1
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
