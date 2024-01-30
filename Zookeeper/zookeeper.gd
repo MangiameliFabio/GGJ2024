@@ -6,6 +6,7 @@ const SPEED = 4.0
 const ATTACK_TIMEOUT: float = 2.0
 const DASH_COOLDOWN: float = 5.0
 const DASH_POWER: float = 4.0
+const DESPAWN_TIME: float = 15.0
 
 @onready var navigation_agent = $Navigation_Agent
 @onready var state_machine = $ZookeeperStateMachine
@@ -80,3 +81,17 @@ func _dash_cooldown_timer_done(timer: Timer) -> void:
 	
 func emit_attack():
 	OnAttack.emit()
+
+
+func start_despawn_timer() -> void:
+	var timer: Timer = Timer.new()
+	timer.one_shot = true
+	timer.autostart = true
+	timer.wait_time = DESPAWN_TIME
+	add_child(timer)
+	timer.timeout.connect(_despawn_timer_done.bind(timer))
+
+
+func _despawn_timer_done(timer: Timer) -> void:
+	timer.queue_free()
+	self.queue_free()

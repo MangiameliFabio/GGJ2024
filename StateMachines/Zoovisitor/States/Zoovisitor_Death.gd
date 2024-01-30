@@ -27,6 +27,7 @@ func enter(_msg := {}) -> void:
 	world_collision.disabled = true
 	damage_trigger.monitoring = false
 	bone.apply_central_impulse(impulse_dir.normalized() * 125)
+	character.start_despawn_timer()
 
 func exit() -> void:
 	pass

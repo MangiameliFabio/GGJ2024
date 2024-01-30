@@ -97,21 +97,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.115462, 0)
 collision_layer = 3
 collision_mask = 3
 
-[node name="UI" type="CanvasLayer" parent="."]
-
-[node name="MarginContainer" type="MarginContainer" parent="UI"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_top = 10
-
-[node name="Hud" parent="UI/MarginContainer" instance=ExtResource("4_b8wlg")]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-
 [node name="GameMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_snypc")
 bus = &"Soundtrack"
@@ -121,6 +106,22 @@ script = ExtResource("5_x45o6")
 stream = ExtResource("5_5sjso")
 autoplay = true
 bus = &"Ambient"
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+
+[node name="Hud" parent="UI/MarginContainer" instance=ExtResource("4_b8wlg")]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 
 [node name="Enemy_Spawn_Factory" parent="." instance=ExtResource("7_jsth4")]
 initial_wave_start_delay = 12.0

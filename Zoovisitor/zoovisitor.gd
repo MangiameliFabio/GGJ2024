@@ -4,6 +4,7 @@ class_name Zoovisitor
 
 const SPEED = 2.0
 const ATTACK_COOLDOWN: float = 5.7
+const DESPAWN_TIME: float = 15.0
 
 @onready var navigation_agent = $Navigation_Agent
 @onready var state_machine = $ZoovisitorStateMachine
@@ -89,4 +90,17 @@ func do_damage() -> void:
 func _on_damage_trigger_entered(body):
 	if body == Gibbi.Instance and !attack_on_cooldown and !dead:
 		state_machine.transition_to("Attack")
-		#Gibbi.Instance.recieve_damage()
+
+
+func start_despawn_timer() -> void:
+	var timer: Timer = Timer.new()
+	timer.one_shot = true
+	timer.autostart = true
+	timer.wait_time = DESPAWN_TIME
+	add_child(timer)
+	timer.timeout.connect(_despawn_timer_done.bind(timer))
+
+
+func _despawn_timer_done(timer: Timer) -> void:
+	timer.queue_free()
+	self.queue_free()
