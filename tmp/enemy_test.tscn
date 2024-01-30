@@ -71,11 +71,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_top = 50
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
 
 [node name="Hud" parent="UI/MarginContainer" instance=ExtResource("6_3nreg")]
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 0
 size_flags_vertical = 0
 
 [connection signal="damage_recieved" from="Gibbi" to="UI/MarginContainer/Hud" method="remove_banana"]

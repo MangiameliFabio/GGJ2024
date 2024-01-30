@@ -12,7 +12,6 @@ func handle_input(_event: InputEvent) -> void:
 
 func update(_delta: float) -> void:
 	var overlapping_bodies = character.get_node("Dash_Trigger").get_overlapping_bodies()
-	var tmp = character.dash_on_cooldown
 	if not character.dash_on_cooldown and overlapping_bodies.has(Gibbi.Instance):
 		state_machine.transition_to("Charge_Dash")
 	

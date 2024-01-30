@@ -1,7 +1,7 @@
 [gd_resource type="Theme" load_steps=7 format=3 uid="uid://bkw3xv71hmit7"]
 
-[ext_resource type="FontFile" uid="uid://cjxl58wbdiel1" path="res://Fonts/Jungle Fever Inline.ttf" id="1_bk2vo"]
-[ext_resource type="FontFile" uid="uid://bapdiaf0nnohl" path="res://Fonts/Jungle Fever NF.ttf" id="1_ywene"]
+[ext_resource type="FontFile" uid="uid://cb0a3mpq03g0g" path="res://Fonts/Jungle Fever Inline.ttf" id="1_bk2vo"]
+[ext_resource type="FontFile" uid="uid://c7r31f5fn5v7i" path="res://Fonts/Jungle Fever NF.ttf" id="1_ywene"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8488y"]
 

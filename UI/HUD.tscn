@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://UI/HUD.gd" id="1_oykub"]
 [ext_resource type="Theme" uid="uid://bkw3xv71hmit7" path="res://UI/ui_theme.tres" id="1_xpsfd"]
 [ext_resource type="PackedScene" uid="uid://cirra0rk75s10" path="res://UI/bananna.tscn" id="2_3xkid"]
-[ext_resource type="Texture2D" uid="uid://b7vmt7yvxbecj" path="res://UI/enemy_icon.png" id="3_53vts"]
+[ext_resource type="Texture2D" uid="uid://dttc1wt3pc6sa" path="res://UI/slap_icon.png" id="4_enuyw"]
 
 [node name="Hud" type="Control"]
 layout_mode = 3
@@ -16,36 +16,34 @@ theme = ExtResource("1_xpsfd")
 script = ExtResource("1_oykub")
 banana_scene = ExtResource("2_3xkid")
 
-[node name="HBox" type="HBoxContainer" parent="."]
+[node name="HBox" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-grow_horizontal = 2
-theme_override_constants/separation = 275
-alignment = 1
+offset_right = 100.0
+offset_bottom = 358.0
+theme_override_constants/separation = 25
 
 [node name="Margin" type="MarginContainer" parent="HBox"]
-custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 
 [node name="Banana_HBox" type="HBoxContainer" parent="HBox/Margin"]
 layout_mode = 2
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="HBox"]
-layout_mode = 2
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="HBox/HBoxContainer2"]
-custom_minimum_size = Vector2(32, 32)
+[node name="HBoxContainer2" type="MarginContainer" parent="HBox"]
 layout_mode = 2
-texture = ExtResource("3_53vts")
 
-[node name="Slap_Label" type="Label" parent="HBox/HBoxContainer2"]
+[node name="TextureRect" type="TextureRect" parent="HBox/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("4_enuyw")
+stretch_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="HBox/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 25
+
+[node name="Slap_Label" type="Label" parent="HBox/HBoxContainer2/Margin"]
 layout_mode = 2
 theme = ExtResource("1_xpsfd")
 theme_override_font_sizes/font_size = 24
 text = "0"
-
-[node name="Padding_Right" type="Control" parent="HBox"]
-custom_minimum_size = Vector2(180, 0)
-layout_mode = 2

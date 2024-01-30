@@ -16,8 +16,8 @@ var tmp_counter: int = 0
 
 
 func _ready():
-	#setup_first_wave()
-	pass
+	setup_first_wave()
+	#pass
 
 
 func _process(delta):
