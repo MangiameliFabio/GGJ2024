@@ -14,7 +14,6 @@ func _ready():
 	step_sounds.append(load("res://Sounds/Character/FS/FS_Char (07).wav"))
 
 func play_ran_step():
-	print("step")
 	pitch_scale = rng.randf_range(0.8, 1.2)
 	set_stream(step_sounds[rng.randf_range(0, step_sounds.size())])
 	play()

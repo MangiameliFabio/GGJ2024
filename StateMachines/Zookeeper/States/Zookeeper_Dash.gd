@@ -26,8 +26,8 @@ func exit() -> void:
 
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "EnemyAttack_End":
-		print(Gibbi.Instance.position.distance_squared_to(character.position))
-		if Gibbi.Instance.position.distance_squared_to(character.position) <= 1.5:
+		print("distance: " + str(Gibbi.Instance.position.distance_squared_to(character.position)))
+		if Gibbi.Instance.position.distance_squared_to(character.position) <= 1.75:
 			state_machine.transition_to("Attack")
 		else:
 			state_machine.transition_to("Follow_Player")

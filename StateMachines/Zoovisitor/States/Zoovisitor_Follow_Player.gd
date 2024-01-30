@@ -34,7 +34,6 @@ func physics_update(_delta: float) -> void:
 
 
 func enter(_msg := {}) -> void:
-	print("Follow player zoovisitor")
 	zoovisitor_animation_player.play("EnemyWalk")
 
 

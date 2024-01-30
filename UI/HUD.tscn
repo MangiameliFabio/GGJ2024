@@ -10,37 +10,42 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 3.0
-offset_top = -4.0
-offset_right = 3.0
-offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_xpsfd")
 script = ExtResource("1_oykub")
 banana_scene = ExtResource("2_3xkid")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBox" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+theme_override_constants/separation = 275
+alignment = 1
+
+[node name="Margin" type="MarginContainer" parent="HBox"]
+custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
-offset_left = 52.0
-offset_top = 50.0
-offset_right = 338.0
-offset_bottom = 104.0
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 563.0
-offset_top = 59.0
-offset_right = 603.0
-offset_bottom = 91.0
+[node name="Banana_HBox" type="HBoxContainer" parent="HBox/Margin"]
+layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer2"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="HBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HBox/HBoxContainer2"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 texture = ExtResource("3_53vts")
 
-[node name="Label" type="Label" parent="HBoxContainer2"]
+[node name="Slap_Label" type="Label" parent="HBox/HBoxContainer2"]
 layout_mode = 2
 theme = ExtResource("1_xpsfd")
 theme_override_font_sizes/font_size = 24
 text = "0"
+
+[node name="Padding_Right" type="Control" parent="HBox"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bldgm50dtb14n"]
+[gd_scene load_steps=15 format=3 uid="uid://bldgm50dtb14n"]
 
 [ext_resource type="PackedScene" uid="uid://c7ahxrnjw44w4" path="res://Models/Environment/enclosure.tscn" id="1_dua2e"]
 [ext_resource type="PackedScene" uid="uid://co8yniwm7mw4v" path="res://Character/Scenes/Gibbi.tscn" id="2_103se"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://ctgosm05fxk2o" path="res://Models/Environment/speaker_2.tscn" id="9_0d2cv"]
 [ext_resource type="PackedScene" uid="uid://ns5tb320xyw7" path="res://Models/Environment/Grass.glb" id="10_nn8jw"]
 [ext_resource type="PackedScene" uid="uid://cpa50r3k73dj1" path="res://Models/Environment/Swing.glb" id="11_rxi6x"]
+[ext_resource type="PackedScene" uid="uid://cbt8ur5rbka7c" path="res://Zoovisitor/Zoovisitor.tscn" id="12_krq05"]
 
 [sub_resource type="Environment" id="Environment_bo3lw"]
 
@@ -96,7 +97,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.115462, 0)
 collision_layer = 3
 collision_mask = 3
 
-[node name="Hud" parent="." instance=ExtResource("4_b8wlg")]
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 50
+
+[node name="Hud" parent="UI/MarginContainer" instance=ExtResource("4_b8wlg")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
 
 [node name="GameMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_snypc")
@@ -164,8 +178,11 @@ transform = Transform3D(-0.341052, 0.145532, -0.928711, 0, 0.987944, 0.154814, 0
 [node name="Swing2" parent="Decoration" instance=ExtResource("11_rxi6x")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.236485, 0.106968, -0.53656)
 
-[connection signal="damage_recieved" from="Gibbi" to="Hud" method="remove_banana"]
-[connection signal="enemy_killed" from="Gibbi" to="Hud" method="change_kill_count"]
+[node name="Zoovisitor" parent="." instance=ExtResource("12_krq05")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.16613, 0.227993, 0.601876)
+
+[connection signal="damage_recieved" from="Gibbi" to="UI/MarginContainer/Hud" method="remove_banana"]
+[connection signal="enemy_killed" from="Gibbi" to="UI/MarginContainer/Hud" method="change_kill_count"]
 [connection signal="finished" from="AudioStreamPlayer" to="GameMusic" method="_on_audio_stream_player_finished"]
 
 [editable path="NavigationRegion3D/Enclosure"]

@@ -24,7 +24,6 @@ GameManager="*res://GameManager.gd"
 
 window/size/viewport_width=1200
 window/size/viewport_height=800
-window/size/mode=3
 window/stretch/mode="viewport"
 window/stretch/aspect="keep_height"
 mouse_cursor/custom_image="res://Textures/GibbonCursor.png"

@@ -14,13 +14,7 @@ func update(_delta: float) -> void:
 	var overlapping_bodies = character.get_node("Dash_Trigger").get_overlapping_bodies()
 	var tmp = character.dash_on_cooldown
 	if not character.dash_on_cooldown and overlapping_bodies.has(Gibbi.Instance):
-		print("follow trigger")
 		state_machine.transition_to("Charge_Dash")
-		#for body in overlapping_bodies:
-			#if body == Gibbi.Instance:
-				#var tmp = character.dash_on_cooldown
-				#print("follow trigger")
-				#state_machine.transition_to("Charge_Dash")
 	
 	# Look at the set target
 	zookeeper.look_at(zookeeper.navigation_agent.get_target_position())

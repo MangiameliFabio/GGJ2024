@@ -2,6 +2,9 @@ extends ZoovisitorBaseState
 
 @export var bone: PhysicalBone3D
 
+@onready var damage_trigger = $"../../Damage_Trigger"
+
+
 func handle_input(_event: InputEvent) -> void:
 	pass
 
@@ -20,6 +23,7 @@ func enter(_msg := {}) -> void:
 	var impulse_dir = _msg.damage_direction as Vector3
 	impulse_dir.y = 0.5
 	$"../../World_Collision".disabled = true
+	damage_trigger.monitoring = false
 	bone.apply_central_impulse(impulse_dir.normalized() * 125)
 
 func exit() -> void:

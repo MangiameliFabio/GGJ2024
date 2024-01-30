@@ -7,6 +7,7 @@ const ATTACK_COOLDOWN: float = 5.7
 
 @onready var navigation_agent = $Navigation_Agent
 @onready var state_machine = $ZoovisitorStateMachine
+@onready var damage_trigger = $Damage_Trigger
 
 var attack_on_cooldown: bool = false
 var dead: bool = false
@@ -34,7 +35,6 @@ func update_target_location(target_location: Vector3) -> void:
 func _on_navigation_agent_target_reached():
 	if !attack_on_cooldown and !dead:
 		state_machine.transition_to("Attack")
-		Gibbi.Instance.recieve_damage()
 
 
 func start_attack_cooldown() -> void:
@@ -78,3 +78,15 @@ func receive_damage(damage_direction: Vector3) -> bool:
 	
 func emit_attack():
 	OnAttack.emit()
+
+
+func do_damage() -> void:
+	for body in damage_trigger.get_overlapping_bodies():
+		if body == Gibbi.Instance:
+			body.recieve_damage()
+
+
+func _on_damage_trigger_entered(body):
+	if body == Gibbi.Instance and !attack_on_cooldown and !dead:
+		state_machine.transition_to("Attack")
+		#Gibbi.Instance.recieve_damage()

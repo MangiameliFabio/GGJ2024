@@ -60,7 +60,6 @@ func _attack_cooldown_timer_done(timer: Timer) -> void:
 
 func _on_dash_trigger_entered(body):
 	if body == Gibbi.Instance and !dash_on_cooldown:
-		print("trigger on enemy")
 		state_machine.transition_to("Charge_Dash")
 
 

@@ -6,6 +6,7 @@ static var Instance : Node
 const SPEED = 4.0
 const JUMP_VELOCITY = 4.5
 const ROTATION_SPEED = 0.005
+const DAMAGE_FLASH_DURATION: float = 0.2
 
 @onready var camera = $Camera3D
 @onready var collison = $Collision
@@ -14,6 +15,8 @@ const ROTATION_SPEED = 0.005
 @onready var anim_tree: AnimationTree = $Collision/GibbiSkeleton/AnimationTree
 @onready var slap_player: AudioStreamPlayer = $SlapPlayer
 @onready var sfx_player: AudioStreamPlayer = $SFXPlayer
+@onready var gibbi_mesh = $Collision/GibbiSkeleton/Armature/GeneralSkeleton/Gibbi
+
 
 signal enemy_killed
 signal damage_recieved
@@ -21,9 +24,10 @@ signal damage_recieved
 var in_attack = false
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
-
 var health = 5
 var dead = false
+var material: StandardMaterial3D
+var original_emission_color: Color
 
 signal running(IsRunning : bool)
 
@@ -31,6 +35,14 @@ func _ready():
 	GameManager.kill_count = 0
 	Instance = self
 	anim_player.play("GibbiIdle")
+	
+	#code for damage flashing
+	var og_material = gibbi_mesh.get_active_material(0) as StandardMaterial3D
+	og_material.set_feature(BaseMaterial3D.FEATURE_EMISSION, true)
+	material = og_material.duplicate()
+	gibbi_mesh.set_surface_override_material(0, material)
+	
+	original_emission_color = material.emission
 
 func _input(event):
 	if not dead:
@@ -88,6 +100,7 @@ func recieve_damage():
 	health -= 1
 	$HitPlayer.play()
 	damage_recieved.emit()
+	flash_emission()
 	if(health <= 0):
 		dead = true
 		skeleton.skeleton.physical_bones_start_simulation()
@@ -107,3 +120,13 @@ func turn(mouse_pos):
 	var wrotation = Quaternion(collison.global_transform.basis).slerp(Quaternion(wtransform.basis), rotation_speed)
 
 	collison.global_transform = Transform3D(Basis(wrotation), collison.global_transform.origin)
+
+
+func flash_emission():
+	var duration = DAMAGE_FLASH_DURATION
+	material.emission = Color.RED
+	material.emission_energy = 1.0  # Adjust the emission energy as needed
+	await get_tree().create_timer(duration).timeout
+	material.emission = original_emission_color
+	material.emission_energy = 0
+

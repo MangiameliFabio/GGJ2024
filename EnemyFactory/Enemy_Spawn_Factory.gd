@@ -16,17 +16,20 @@ var tmp_counter: int = 0
 
 
 func _ready():
-	
-	await get_tree().create_timer(initial_wave_start_delay).timeout
-	
-	rng.randomize()
-	spawn_next_wave()
-	spawn_timer.wait_time = enemy_wave_timer
+	#setup_first_wave()
+	pass
 
 
 func _process(delta):
 	if Input.is_action_just_pressed("dash_test"):
 		spawn_next_wave()
+
+
+func setup_first_wave() -> void:
+	await get_tree().create_timer(initial_wave_start_delay).timeout
+	rng.randomize()
+	spawn_next_wave()
+	spawn_timer.wait_time = enemy_wave_timer
 
 
 func generate_enemy() -> CharacterBody3D:
