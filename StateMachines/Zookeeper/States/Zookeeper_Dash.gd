@@ -28,6 +28,7 @@ func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "EnemyAttack_End":
 		#print("distance: " + str(Gibbi.Instance.position.distance_squared_to(character.position)))
 		#if Gibbi.Instance.position.distance_squared_to(character.position) <= 1.75:
+		$"../../LandingSound".play()
 		var overlapping_bodies = character.get_node("Damage_Trigger").get_overlapping_bodies()
 		if overlapping_bodies.has(Gibbi.Instance):
 			state_machine.transition_to("Attack")

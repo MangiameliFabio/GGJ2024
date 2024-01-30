@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://co8yniwm7mw4v" path="res://Character/Scenes/Gibbi.tscn" id="1_7jmg5"]
 [ext_resource type="Script" path="res://tmp/test_world.gd" id="1_gwsgm"]
-[ext_resource type="PackedScene" uid="uid://cbt8ur5rbka7c" path="res://Zoovisitor/Zoovisitor.tscn" id="3_im2xv"]
 [ext_resource type="AudioStream" uid="uid://b7pktktxluudk" path="res://Music/230127_GiG_InGameMusic_V1.wav" id="4_vvpns"]
-[ext_resource type="AudioStream" uid="uid://cr6l2qbeshun7" path="res://Sounds/BG/BG_Zoo_Loopable.wav" id="5_1j31n"]
+[ext_resource type="AudioStream" uid="uid://chmhxippv4u3j" path="res://Sounds/BG/BG_Zoo_Loopable_v2.wav" id="5_1j31n"]
+[ext_resource type="PackedScene" uid="uid://c34jh3v61xojh" path="res://Zookeeper/Zookeeper.tscn" id="5_bak8s"]
 
 [sub_resource type="Environment" id="Environment_wcecn"]
 
@@ -54,12 +54,6 @@ collision_layer = 3
 collision_mask = 3
 material = SubResource("StandardMaterial3D_qfsbd")
 
-[node name="Zoovisitor" parent="." instance=ExtResource("3_im2xv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.3154, 0.5, -8.09339)
-
-[node name="Zoovisitor2" parent="." instance=ExtResource("3_im2xv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.574988, -3.59367)
-
 [node name="GameSoundtrack" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_vvpns")
 autoplay = true
@@ -69,3 +63,6 @@ bus = &"Soundtrack"
 stream = ExtResource("5_1j31n")
 autoplay = true
 bus = &"Ambient"
+
+[node name="Zookeeper" parent="." instance=ExtResource("5_bak8s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.635315, -6.4552)

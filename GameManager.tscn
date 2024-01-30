@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://ben4qyj3324tq"]
+
+[ext_resource type="Script" path="res://GameManager.gd" id="1_kloli"]
+[ext_resource type="AudioStream" uid="uid://cta8kl2cqhl78" path="res://Music/240127_GiG_MenuMusic_demo_v1.wav" id="2_e6374"]
+
+[node name="GameManager" type="Node"]
+script = ExtResource("1_kloli")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_e6374")
+autoplay = true
+bus = &"Soundtrack"
