@@ -130,11 +130,6 @@ size_flags_vertical = 0
 initial_wave_start_delay = 12.0
 enemy_wave_timer = 6.0
 
-[node name="Intro" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_bsn2x")
-autoplay = true
-bus = &"SFX"
-
 [node name="Decoration" type="Node3D" parent="."]
 
 [node name="Speaker2" parent="Decoration" instance=ExtResource("9_0d2cv")]
@@ -204,7 +199,6 @@ wait_time = 15.0
 [connection signal="damage_recieved" from="Gibbi" to="UI/MarginContainer/Hud" method="remove_banana"]
 [connection signal="enemy_killed" from="Gibbi" to="UI/MarginContainer/Hud" method="change_kill_count"]
 [connection signal="enemy_killed" from="Gibbi" to="Speeker" method="play_speekers"]
-[connection signal="finished" from="Intro" to="GameMusic" method="_on_audio_stream_player_finished"]
 [connection signal="finished" from="Speeker/Speeker1" to="GameMusic" method="_on_audio_stream_player_finished"]
 [connection signal="finished" from="Speeker/Speeker1" to="Speeker" method="_on_speeker_1_finished"]
 [connection signal="timeout" from="Speeker/Timer" to="Speeker" method="_on_timer_timeout"]
