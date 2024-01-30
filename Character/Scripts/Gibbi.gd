@@ -97,7 +97,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 func recieve_damage():
-	health -= 1
+	#health -= 1
 	$HitPlayer.play()
 	damage_recieved.emit()
 	flash_emission()

@@ -4,7 +4,7 @@ const VISITOR_SPAWN_RATE: float = 0.8
 
 @export var zookeeper_scene: PackedScene
 @export var zoovisitor_scene: PackedScene
-@export var initial_wave_start_delay: float = 5.0
+@export var initial_wave_start_delay: float = 8.0
 @export var enemy_wave_timer: float = 5.0
 
 @onready var spawn_points: Array[Node] = self.get_children()
@@ -47,16 +47,16 @@ func spawn_next_wave() -> void:
 	for index in enemy_wave_count:
 		var random_number = rng.randi_range(0, 2)
 		var enemy = generate_enemy()
-		var test = tmp_counter % 3
 		spawn_points[tmp_counter % 3].add_child(enemy)
 		
 		var random_spawn_offset = 0
 		if tmp_counter % 2 == 0:
-			random_spawn_offset = rng.randi_range(0, 9)
+			random_spawn_offset = rng.randi_range(-6, 6)
+			enemy.global_position.x = enemy.global_position.x + random_spawn_offset
 		else:
-			random_spawn_offset = rng.randi_range(10, 19)
+			random_spawn_offset = rng.randi_range(-6, 6)
+			enemy.global_position.z = enemy.global_position.z + random_spawn_offset
 		tmp_counter += 1
-		enemy.global_position.x = enemy.global_position.x + random_spawn_offset
 	
 	enemy_wave_count += 1
 	spawn_timer.start()

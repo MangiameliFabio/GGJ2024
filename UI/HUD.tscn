@@ -23,6 +23,7 @@ offset_bottom = 358.0
 theme_override_constants/separation = 25
 
 [node name="Margin" type="MarginContainer" parent="HBox"]
+custom_minimum_size = Vector2(0, 45)
 layout_mode = 2
 
 [node name="Banana_HBox" type="HBoxContainer" parent="HBox/Margin"]
