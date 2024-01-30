@@ -1,5 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://bldgm50dtb14n"]
+[gd_scene load_steps=17 format=3 uid="uid://bldgm50dtb14n"]
 
+[ext_resource type="Script" path="res://Scenes/Main.gd" id="1_2rn5l"]
 [ext_resource type="PackedScene" uid="uid://c7ahxrnjw44w4" path="res://Models/Environment/enclosure.tscn" id="1_dua2e"]
 [ext_resource type="PackedScene" uid="uid://co8yniwm7mw4v" path="res://Character/Scenes/Gibbi.tscn" id="2_103se"]
 [ext_resource type="PackedScene" uid="uid://c03j0bj1s3lfj" path="res://UI/HUD.tscn" id="4_b8wlg"]
@@ -11,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://ctgosm05fxk2o" path="res://Models/Environment/speaker_2.tscn" id="9_0d2cv"]
 [ext_resource type="PackedScene" uid="uid://ns5tb320xyw7" path="res://Models/Environment/Grass.glb" id="10_nn8jw"]
 [ext_resource type="PackedScene" uid="uid://cpa50r3k73dj1" path="res://Models/Environment/Swing.glb" id="11_rxi6x"]
+[ext_resource type="AudioStream" uid="uid://dvyex4jt1yt6c" path="res://speeker_randomizer.tres" id="12_5n7oo"]
+[ext_resource type="Script" path="res://Scenes/Speeker.gd" id="12_fq250"]
 
 [sub_resource type="Environment" id="Environment_bo3lw"]
 
@@ -22,6 +25,7 @@ agent_max_slope = 20.62
 region_min_size = 200.0
 
 [node name="Main" type="Node3D"]
+script = ExtResource("1_2rn5l")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_bo3lw")
@@ -112,11 +116,6 @@ bus = &"Ambient"
 initial_wave_start_delay = 12.0
 enemy_wave_timer = 6.0
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_bsn2x")
-autoplay = true
-bus = &"SFX"
-
 [node name="Decoration" type="Node3D" parent="."]
 
 [node name="Speaker2" parent="Decoration" instance=ExtResource("9_0d2cv")]
@@ -164,9 +163,31 @@ transform = Transform3D(-0.341052, 0.145532, -0.928711, 0, 0.987944, 0.154814, 0
 [node name="Swing2" parent="Decoration" instance=ExtResource("11_rxi6x")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.236485, 0.106968, -0.53656)
 
+[node name="Speeker" type="Node" parent="." node_paths=PackedStringArray("speeker")]
+script = ExtResource("12_fq250")
+speeker = [NodePath("Speeker1"), NodePath("Speeker2"), NodePath("Speeker3")]
+randomizer = ExtResource("12_5n7oo")
+intro = ExtResource("7_bsn2x")
+speeker_db = 5
+
+[node name="Speeker1" type="AudioStreamPlayer3D" parent="Speeker"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.259267, 2.52926, 11.3477)
+
+[node name="Speeker2" type="AudioStreamPlayer3D" parent="Speeker"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.2857, 2.55048, -5.9498)
+
+[node name="Speeker3" type="AudioStreamPlayer3D" parent="Speeker"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.34536, 2.52926, -6.26038)
+
+[node name="Timer" type="Timer" parent="Speeker"]
+wait_time = 15.0
+
 [connection signal="damage_recieved" from="Gibbi" to="Hud" method="remove_banana"]
 [connection signal="enemy_killed" from="Gibbi" to="Hud" method="change_kill_count"]
-[connection signal="finished" from="AudioStreamPlayer" to="GameMusic" method="_on_audio_stream_player_finished"]
+[connection signal="enemy_killed" from="Gibbi" to="Speeker" method="play_speekers"]
+[connection signal="finished" from="Speeker/Speeker1" to="GameMusic" method="_on_audio_stream_player_finished"]
+[connection signal="finished" from="Speeker/Speeker1" to="Speeker" method="_on_speeker_1_finished"]
+[connection signal="timeout" from="Speeker/Timer" to="Speeker" method="_on_timer_timeout"]
 
 [editable path="NavigationRegion3D/Enclosure"]
 [editable path="Enemy_Spawn_Factory"]

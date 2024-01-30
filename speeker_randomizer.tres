@@ -1,0 +1,26 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=8 format=3 uid="uid://dvyex4jt1yt6c"]
+
+[ext_resource type="AudioStream" uid="uid://ccwdy84oqkinl" path="res://Sounds/Narrarator/Comments/Narrarator_Comment_1.wav" id="1_3itck"]
+[ext_resource type="AudioStream" uid="uid://cqfd1if0c8yfj" path="res://Sounds/Narrarator/Comments/Narrarator_Comment_2.wav" id="2_k876e"]
+[ext_resource type="AudioStream" uid="uid://bfirpdi4ii7tp" path="res://Sounds/Narrarator/Comments/Narrarator_Comment_3.wav" id="3_p5uw2"]
+[ext_resource type="AudioStream" uid="uid://b7p0fykdwhlcq" path="res://Sounds/Narrarator/Comments/Narrarator_Comment_4.wav" id="4_13ihs"]
+[ext_resource type="AudioStream" uid="uid://etnk0siuwxav" path="res://Sounds/Narrarator/Comments/Narrarator_Comment_5.wav" id="5_fy51l"]
+[ext_resource type="AudioStream" uid="uid://bhmngww6ha0m2" path="res://Sounds/Narrarator/Comments/Narrarator_Comment_6.wav" id="6_npjqh"]
+[ext_resource type="AudioStream" uid="uid://dgdh8gm1i227m" path="res://Sounds/Narrarator/Comments/Narrarator_Comment_7.wav" id="7_33w3v"]
+
+[resource]
+streams_count = 7
+stream_0/stream = ExtResource("1_3itck")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("2_k876e")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("3_p5uw2")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("4_13ihs")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("5_fy51l")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("6_npjqh")
+stream_5/weight = 1.0
+stream_6/stream = ExtResource("7_33w3v")
+stream_6/weight = 1.0
