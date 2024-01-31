@@ -186,12 +186,15 @@ speeker_db = 5
 
 [node name="Speeker1" type="AudioStreamPlayer3D" parent="Speeker"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.259267, 2.52926, 11.3477)
+bus = &"Voice"
 
 [node name="Speeker2" type="AudioStreamPlayer3D" parent="Speeker"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.2857, 2.55048, -5.9498)
+bus = &"Voice"
 
 [node name="Speeker3" type="AudioStreamPlayer3D" parent="Speeker"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.34536, 2.52926, -6.26038)
+bus = &"Voice"
 
 [node name="Timer" type="Timer" parent="Speeker"]
 wait_time = 15.0
