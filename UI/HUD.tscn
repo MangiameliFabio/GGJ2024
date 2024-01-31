@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c03j0bj1s3lfj"]
+[gd_scene load_steps=6 format=3 uid="uid://c03j0bj1s3lfj"]
 
 [ext_resource type="Script" path="res://UI/HUD.gd" id="1_oykub"]
 [ext_resource type="Theme" uid="uid://bkw3xv71hmit7" path="res://UI/ui_theme.tres" id="1_xpsfd"]
 [ext_resource type="PackedScene" uid="uid://cirra0rk75s10" path="res://UI/bananna.tscn" id="2_3xkid"]
-[ext_resource type="Texture2D" uid="uid://dttc1wt3pc6sa" path="res://UI/slap_icon.png" id="4_enuyw"]
+[ext_resource type="Texture2D" uid="uid://fwtvqn5q0sar" path="res://UI/SlapCounter.png" id="4_umqly"]
+[ext_resource type="FontFile" uid="uid://c7r31f5fn5v7i" path="res://Fonts/Jungle Fever NF.ttf" id="5_omkg6"]
 
 [node name="Hud" type="Control"]
 layout_mode = 3
@@ -18,8 +19,9 @@ banana_scene = ExtResource("2_3xkid")
 
 [node name="HBox" type="VBoxContainer" parent="."]
 layout_mode = 1
-offset_right = 100.0
-offset_bottom = 358.0
+offset_right = 153.0
+offset_bottom = 198.0
+scale = Vector2(0.7, 0.7)
 theme_override_constants/separation = 25
 
 [node name="Margin" type="MarginContainer" parent="HBox"]
@@ -30,21 +32,27 @@ layout_mode = 2
 layout_mode = 2
 alignment = 1
 
-[node name="HBoxContainer2" type="MarginContainer" parent="HBox"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="HBox"]
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 
 [node name="TextureRect" type="TextureRect" parent="HBox/HBoxContainer2"]
 layout_mode = 2
-texture = ExtResource("4_enuyw")
-stretch_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("4_umqly")
 
-[node name="Margin" type="MarginContainer" parent="HBox/HBoxContainer2"]
+[node name="Slap_Label" type="Label" parent="HBox/HBoxContainer2"]
 layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 25
-
-[node name="Slap_Label" type="Label" parent="HBox/HBoxContainer2/Margin"]
-layout_mode = 2
-theme = ExtResource("1_xpsfd")
-theme_override_font_sizes/font_size = 24
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.937255, 0.937255, 0.937255, 1)
+theme_override_colors/font_shadow_color = Color(0.207843, 0.0705882, 0.0117647, 1)
+theme_override_colors/font_outline_color = Color(0.207843, 0.0705882, 0.0117647, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 8
+theme_override_constants/shadow_outline_size = 8
+theme_override_fonts/font = ExtResource("5_omkg6")
+theme_override_font_sizes/font_size = 42
 text = "0"

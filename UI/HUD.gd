@@ -2,7 +2,7 @@ extends Control
 
 @export var banana_scene: PackedScene
 
-@onready var slap_label = $HBox/HBoxContainer2/Margin/Slap_Label
+@onready var slap_label = $HBox/HBoxContainer2/Slap_Label
 @onready var banana_hbox = $HBox/Margin/Banana_HBox
 
 
